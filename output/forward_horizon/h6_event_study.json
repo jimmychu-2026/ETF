@@ -1,0 +1,413 @@
+{
+  "generated": "2026-06-09T18:39:19",
+  "window": "2018-01-01 to 2025-12-31",
+  "notes": {
+    "H6a": "Rebalance window = ±10 TD around rebalance month-end (calendar proxy).",
+    "H6b": "Ex-div month = any month with TaiwanStockDividendResult ex-date.",
+    "G_proxy": "max(0, (declared - (before-after))/before); EQ share needs issuer disclosure."
+  },
+  "etfs": [
+    {
+      "ticker": "0050",
+      "n_days": 1942,
+      "sigma_daily": 0.012776231494958878,
+      "H6a_rebalance": {
+        "months": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "window_td": 10,
+        "n_rebal_days": 630,
+        "vol_rebal_window": 0.01380881156213895,
+        "vol_other_days": 0.012253012786075995,
+        "ratio_rebal_over_other": 1.1269727538218948
+      },
+      "H6b_exdiv_month": {
+        "n_exdiv_events": 16,
+        "n_exdiv_months": 16,
+        "vol_exdiv_month": 0.012859714139833136,
+        "vol_non_exdiv_month": 0.012762711922598027,
+        "ratio_ex_over_non": 1.0076004392971805
+      },
+      "H6d_yield_gap": {
+        "realized_yield_t12_over_price": 0.1372,
+        "ann_yield_from_latest_cadence": 0.014,
+        "events": [
+          {
+            "ex_date": "2024-01-17",
+            "D_per_share": 3.0,
+            "before_price": 131.65,
+            "yield_per_event": 0.02279,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2024-07-16",
+            "D_per_share": 1.0,
+            "before_price": 196.7,
+            "yield_per_event": 0.00508,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-01-17",
+            "D_per_share": 2.7,
+            "before_price": 198.05,
+            "yield_per_event": 0.01363,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-07-21",
+            "D_per_share": 0.36,
+            "before_price": 51.45,
+            "yield_per_event": 0.007,
+            "G_proxy": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "006208",
+      "n_days": 1940,
+      "sigma_daily": 0.012175465970058377,
+      "H6a_rebalance": {
+        "months": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "window_td": 10,
+        "n_rebal_days": 630,
+        "vol_rebal_window": 0.012999708991667518,
+        "vol_other_days": 0.011762006333460582,
+        "ratio_rebal_over_other": 1.105228871938788
+      },
+      "H6b_exdiv_month": {
+        "n_exdiv_events": 16,
+        "n_exdiv_months": 16,
+        "vol_exdiv_month": 0.011679043338919686,
+        "vol_non_exdiv_month": 0.012282648939167381,
+        "ratio_ex_over_non": 0.9508570501984392
+      },
+      "H6d_yield_gap": {
+        "realized_yield_t12_over_price": 0.0423,
+        "ann_yield_from_latest_cadence": 0.0477,
+        "events": [
+          {
+            "ex_date": "2024-07-16",
+            "D_per_share": 0.78,
+            "before_price": 115.4,
+            "yield_per_event": 0.00676,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2024-11-18",
+            "D_per_share": 0.9,
+            "before_price": 112.3,
+            "yield_per_event": 0.00801,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-07-16",
+            "D_per_share": 0.99,
+            "before_price": 117.0,
+            "yield_per_event": 0.00846,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-11-18",
+            "D_per_share": 3.45,
+            "before_price": 144.8,
+            "yield_per_event": 0.02383,
+            "G_proxy": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "0056",
+      "n_days": 1947,
+      "sigma_daily": 0.01000767657315882,
+      "H6a_rebalance": {
+        "months": [
+          6,
+          12
+        ],
+        "window_td": 10,
+        "n_rebal_days": 310,
+        "vol_rebal_window": 0.007950659304548961,
+        "vol_other_days": 0.010352240153937167,
+        "ratio_rebal_over_other": 0.768013414132898
+      },
+      "H6b_exdiv_month": {
+        "n_exdiv_events": 15,
+        "n_exdiv_months": 15,
+        "vol_exdiv_month": 0.015461349425694333,
+        "vol_non_exdiv_month": 0.00859048268934424,
+        "ratio_ex_over_non": 1.7998231280848533
+      },
+      "H6d_yield_gap": {
+        "realized_yield_t12_over_price": 0.1989,
+        "ann_yield_from_latest_cadence": 0.0922,
+        "events": [
+          {
+            "ex_date": "2024-07-16",
+            "D_per_share": 1.07,
+            "before_price": 42.37,
+            "yield_per_event": 0.02525,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2024-10-17",
+            "D_per_share": 1.07,
+            "before_price": 39.02,
+            "yield_per_event": 0.02742,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-01-17",
+            "D_per_share": 1.07,
+            "before_price": 36.39,
+            "yield_per_event": 0.0294,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-04-23",
+            "D_per_share": 1.07,
+            "before_price": 31.98,
+            "yield_per_event": 0.03346,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-07-21",
+            "D_per_share": 0.87,
+            "before_price": 35.6,
+            "yield_per_event": 0.02444,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-10-23",
+            "D_per_share": 0.87,
+            "before_price": 37.75,
+            "yield_per_event": 0.02305,
+            "G_proxy": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "00878",
+      "n_days": 1329,
+      "sigma_daily": 0.00915930814380331,
+      "H6a_rebalance": {
+        "months": [
+          5,
+          11
+        ],
+        "window_td": 10,
+        "n_rebal_days": 220,
+        "vol_rebal_window": 0.007561298500570221,
+        "vol_other_days": 0.009444549274808787,
+        "ratio_rebal_over_other": 0.8005991901316335
+      },
+      "H6b_exdiv_month": {
+        "n_exdiv_events": 21,
+        "n_exdiv_months": 21,
+        "vol_exdiv_month": 0.009677160414360503,
+        "vol_non_exdiv_month": 0.00891350645116224,
+        "ratio_ex_over_non": 1.0856737993496028
+      },
+      "H6d_yield_gap": {
+        "realized_yield_t12_over_price": 0.1791,
+        "ann_yield_from_latest_cadence": 0.0758,
+        "events": [
+          {
+            "ex_date": "2024-08-16",
+            "D_per_share": 0.55,
+            "before_price": 23.13,
+            "yield_per_event": 0.02378,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2024-11-18",
+            "D_per_share": 0.55,
+            "before_price": 22.73,
+            "yield_per_event": 0.0242,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-02-20",
+            "D_per_share": 0.5,
+            "before_price": 22.96,
+            "yield_per_event": 0.02178,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-05-19",
+            "D_per_share": 0.47,
+            "before_price": 21.26,
+            "yield_per_event": 0.02211,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-08-18",
+            "D_per_share": 0.4,
+            "before_price": 21.16,
+            "yield_per_event": 0.0189,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-11-18",
+            "D_per_share": 0.4,
+            "before_price": 21.11,
+            "yield_per_event": 0.01895,
+            "G_proxy": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "00919",
+      "n_days": 775,
+      "sigma_daily": 0.011074113257543521,
+      "H6a_rebalance": {
+        "months": [
+          6,
+          12
+        ],
+        "window_td": 10,
+        "n_rebal_days": 130,
+        "vol_rebal_window": 0.00987877766175232,
+        "vol_other_days": 0.01128992616147836,
+        "ratio_rebal_over_other": 0.8750081728133058
+      },
+      "H6b_exdiv_month": {
+        "n_exdiv_events": 11,
+        "n_exdiv_months": 11,
+        "vol_exdiv_month": 0.010306937717881428,
+        "vol_non_exdiv_month": 0.011379770811458162,
+        "ratio_ex_over_non": 0.9057245430201011
+      },
+      "H6d_yield_gap": {
+        "realized_yield_t12_over_price": 0.2397,
+        "ann_yield_from_latest_cadence": 0.0974,
+        "events": [
+          {
+            "ex_date": "2024-09-23",
+            "D_per_share": 0.72,
+            "before_price": 24.18,
+            "yield_per_event": 0.02978,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2024-12-20",
+            "D_per_share": 0.72,
+            "before_price": 23.97,
+            "yield_per_event": 0.03004,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-03-18",
+            "D_per_share": 0.72,
+            "before_price": 23.74,
+            "yield_per_event": 0.03033,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-06-17",
+            "D_per_share": 0.72,
+            "before_price": 22.49,
+            "yield_per_event": 0.03201,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-09-16",
+            "D_per_share": 0.54,
+            "before_price": 21.79,
+            "yield_per_event": 0.02478,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-12-16",
+            "D_per_share": 0.54,
+            "before_price": 22.19,
+            "yield_per_event": 0.02434,
+            "G_proxy": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "ticker": "00929",
+      "n_days": 624,
+      "sigma_daily": 0.011040241293656036,
+      "H6a_rebalance": {
+        "months": [
+          6,
+          12
+        ],
+        "window_td": 10,
+        "n_rebal_days": 110,
+        "vol_rebal_window": 0.0075130341276273835,
+        "vol_other_days": 0.011662825540381342,
+        "ratio_rebal_over_other": 0.6441864453527381
+      },
+      "H6b_exdiv_month": {
+        "n_exdiv_events": 30,
+        "n_exdiv_months": 30,
+        "vol_exdiv_month": 0.011103263863957121,
+        "vol_non_exdiv_month": 0.007815144011061216,
+        "ratio_ex_over_non": 1.4207369497276114
+      },
+      "H6d_yield_gap": {
+        "realized_yield_t12_over_price": 0.0471,
+        "ann_yield_from_latest_cadence": 0.0613,
+        "events": [
+          {
+            "ex_date": "2025-07-17",
+            "D_per_share": 0.07,
+            "before_price": 17.62,
+            "yield_per_event": 0.00397,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-08-19",
+            "D_per_share": 0.08,
+            "before_price": 17.71,
+            "yield_per_event": 0.00452,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-09-17",
+            "D_per_share": 0.08,
+            "before_price": 18.39,
+            "yield_per_event": 0.00435,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-10-21",
+            "D_per_share": 0.08,
+            "before_price": 18.62,
+            "yield_per_event": 0.0043,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-11-19",
+            "D_per_share": 0.09,
+            "before_price": 17.53,
+            "yield_per_event": 0.00513,
+            "G_proxy": 0.0
+          },
+          {
+            "ex_date": "2025-12-17",
+            "D_per_share": 0.09,
+            "before_price": 17.61,
+            "yield_per_event": 0.00511,
+            "G_proxy": 0.0
+          }
+        ]
+      }
+    }
+  ]
+}
