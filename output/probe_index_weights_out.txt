@@ -1,0 +1,10 @@
+﻿https://www.taiwanindex.com.tw/indexes/IX0170/constituents ERR HTTP Error 404: Not Found
+https://www.taiwanindex.com.tw/indexes/IX0170 len 192072 nuxt True weight True
+https://www.taiwanindex.com.tw/zh-tw/indexes/IX0170/constituents ERR HTTP Error 404: Not Found
+https://www.taiwanindex.com.tw/indexes/IX0179/constituents ERR HTTP Error 404: Not Found
+https://www.taiwanindex.com.tw/indexes/IX0179 len 192264 nuxt True weight True
+https://www.taiwanindex.com.tw/zh-tw/indexes/IX0179/constituents ERR HTTP Error 404: Not Found
+https://www.taiwanindex.com.tw/indexes/IX0179/constituents ERR HTTP Error 404: Not Found
+https://www.taiwanindex.com.tw/indexes/IX0179 len 192264 nuxt True weight True
+https://www.taiwanindex.com.tw/zh-tw/indexes/IX0179/constituents ERR HTTP Error 404: Not Found
+FinMind ERR HTTP Error 422: Unprocessable Entity

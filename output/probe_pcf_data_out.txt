@@ -1,0 +1,119 @@
+﻿FOUND 00878: {'fundCode': 'CN', 'name': '00878 國泰永續高股息(基金之配息來源可能為收益平準金且並無保證收益及配息)', 'stockCode': '00878', 'stockShortName': '國泰永續高股息(基金之配息來源可能為收益平準金且並無保證收益及配息)', 'stockShortNameFix': '國泰永續高股息', 'warnings': '(基金之配息來源可能為收益平準金且並無保證收益及配息)', 'limitTime': '12:00', 'basketUnit': '500,000', 'preAmtRate': '110', 'buyTradeRate': '10', 'redemTradeRate': '40', 'buyTradeRateDate': '06/08', 'redemTradeRateDate': '06/08', 'feeApply': '5,000', 'currency': '新台幣'}
+fundCode for 00878: CN
+
+OK BuySale/GetBuySale {'FundCode': 'CN'}
+{"result": {"fundName": "國泰台灣ESG永續高股息ETF基金", "pbType": "2", "stockCode": "00878", "stockShortName": "國泰永續高股息(基金之配息來源可能為收益平準金且並無保證收益及配息)", "date": "2026/06/09", "pbTypeString": "現金", "preAmtS": "17,226,000", "aum": "580,559,762,466", "totUnit": "18,560,790,000", "diffUnit": "-41,500,000", "nav": "31.28", "basketUnit": "500,000", "basketNav": "15,640,000", "marketVal": "15,609,218", "bm": "30,782", "diffActAmtS": "", "actAmtS": "", "estTotUnitDate": "", "estTotUnit": "", "dataDate": "2026/05/29", "benefiCount": "1658577", "preDate": "1150608", "preDateC": "2026/06/08", "etfType": "01", "currency": "新台幣"}, "returnCode": "2000", "success": true, "returnMessage": "成功"}
+
+OK BuySale/GetBuySale {'fundCode': 'CN'}
+{"result": {"fundName": "國泰台灣ESG永續高股息ETF基金", "pbType": "2", "stockCode": "00878", "stockShortName": "國泰永續高股息(基金之配息來源可能為收益平準金且並無保證收益及配息)", "date": "2026/06/09", "pbTypeString": "現金", "preAmtS": "17,226,000", "aum": "580,559,762,466", "totUnit": "18,560,790,000", "diffUnit": "-41,500,000", "nav": "31.28", "basketUnit": "500,000", "basketNav": "15,640,000", "marketVal": "15,609,218", "bm": "30,782", "diffActAmtS": "", "actAmtS": "", "estTotUnitDate": "", "estTotUnit": "", "dataDate": "2026/05/29", "benefiCount": "1658577", "preDate": "1150608", "preDateC": "2026/06/08", "etfType": "01", "currency": "新台幣"}, "returnCode": "2000", "success": true, "returnMessage": "成功"}
+ERR BuySale/GetBuySale {'ETFCode': '00878'}: HTTP Error 400: Bad Request
+
+OK BuySale/GetStocksList {'FundCode': 'CN'}
+{"result": [], "returnCode": "2000", "success": true, "returnMessage": "成功"}
+
+OK BuySale/GetStocksList {'fundCode': 'CN'}
+{"result": [], "returnCode": "2000", "success": true, "returnMessage": "成功"}
+ERR BuySale/GetStocksList {'ETFCode': '00878'}: HTTP Error 400: Bad Request
+
+OK BuySale/GetStocksList {'FundCode': '00878', 'fundCode': 'CN'}
+{"result": [], "returnCode": "2000", "success": true, "returnMessage": "成功"}
+ERR BuySale/GetLastPCFForeignCurr {'FundCode': 'CN'}: HTTP Error 400: Bad Request
+ERR BuySale/GetLastPCFForeignCurr {'fundCode': 'CN'}: HTTP Error 400: Bad Request
+ERR BuySale/GetLastPCFForeignCurr {'ETFCode': '00878'}: HTTP Error 400: Bad Request
+ERR BuySale/GetLastPCFForeignCurr {'FundCode': '00878', 'fundCode': 'CN'}: HTTP Error 400: Bad Request
+
+=== Capital navPart ===
+navPart ERR {'fundNo': '195'}: HTTP Error 500: Internal Server Error
+navPart ERR {'stocNo': '00919'}: HTTP Error 500: Internal Server Error
+navPart ERR {'fundNo': '195', 'date': '2026-06-09'}: HTTP Error 500: Internal Server Error
+navPart ERR {'fundNo': '195', 'pcfDate': '2026/06/09'}: HTTP Error 500: Internal Server Error
+navPart ERR {'fundNo': '195', 'tradeDate': '2026-06-09'}: HTTP Error 500: Internal Server Error
+navPart ERR {'itemNo': '00919'}: HTTP Error 500: Internal Server Error
+
+=== Fuh Hwa assets ===
+fundID=ETF21 <!DOCTYPE html>
+
+<html lang="zh-tw">
+
+
+
+<head>
+
+		<meta charset="UTF-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="format-detection" content="telephone=no">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover, shrink-to-fit=no, user-scalable=no">
+
+	<meta property="og:url" content="https://www.fhtrust.com.tw/">
+
+	<meta property="og:type" content="website">
+
+	<meta property="og:title" content="基金投資規劃專家，享退休找復華｜復華投信">
+
+	<meta name="description" property="og:description" content="基金投資指定『復華投信』！基金常勝軍， 基金操作追求好而穩定，協助實踐理財目標。&quot;成立超過20年的復華投信，目前資產管理規模超過新台幣4,000億元，是國內『非』金控集團體系最大投信！ 由於旗下基金績效亮眼，近年成為各大基金獎常勝軍、投研團隊屢獲團隊研究獎，累計成立以來獲逾百座大獎肯定。 百人投研團隊 傲視本土業者，同時也是國內第一家推出理財機器人服務的基金公司。&quot;">
+
+	<meta property="og:image" content="https://www.fhtrust.com.tw/UploadFile/Category.pic/202211/5b9966f2-7851-4a02-83b0-c808eed15088logo.png">
+
+	<meta name="keywords" content="基金投資;退休規劃;定時定額;母子基金;月月領">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+	<link rel="shortcut icon" href="/favicon.2a61c77d.ico">
+
+	<script>function domReady() {
+
+    const $body = document.childNodes[1];
+
+    $body.style.setProperty("opacity", 0);
+
+    document.addEventListener("DOMContentLoaded", (event)=>
+fundID=00929 <!DOCTYPE html>
+
+<html lang="zh-tw">
+
+
+
+<head>
+
+		<meta charset="UTF-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="format-detection" content="telephone=no">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover, shrink-to-fit=no, user-scalable=no">
+
+	<meta property="og:url" content="https://www.fhtrust.com.tw/">
+
+	<meta property="og:type" content="website">
+
+	<meta property="og:title" content="基金投資規劃專家，享退休找復華｜復華投信">
+
+	<meta name="description" property="og:description" content="基金投資指定『復華投信』！基金常勝軍， 基金操作追求好而穩定，協助實踐理財目標。&quot;成立超過20年的復華投信，目前資產管理規模超過新台幣4,000億元，是國內『非』金控集團體系最大投信！ 由於旗下基金績效亮眼，近年成為各大基金獎常勝軍、投研團隊屢獲團隊研究獎，累計成立以來獲逾百座大獎肯定。 百人投研團隊 傲視本土業者，同時也是國內第一家推出理財機器人服務的基金公司。&quot;">
+
+	<meta property="og:image" content="https://www.fhtrust.com.tw/UploadFile/Category.pic/202211/5b9966f2-7851-4a02-83b0-c808eed15088logo.png">
+
+	<meta name="keywords" content="基金投資;退休規劃;定時定額;母子基金;月月領">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+	<link rel="shortcut icon" href="/favicon.2a61c77d.ico">
+
+	<script>function domReady() {
+
+    const $body = document.childNodes[1];
+
+    $body.style.setProperty("opacity", 0);
+
+    document.addEventListener("DOMContentLoaded", (event)=>

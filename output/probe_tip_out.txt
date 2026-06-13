@@ -1,0 +1,4 @@
+﻿GET ERR GetLatestWeightList?indexCode=IX0179 HTTP Error 404: Not Found
+GET ERR GetLatestWeightList?indexNo=IX0179 HTTP Error 404: Not Found
+GET ERR tw HTTP Error 500: Internal Server Error
+GET ERR tw HTTP Error 500: Internal Server Error

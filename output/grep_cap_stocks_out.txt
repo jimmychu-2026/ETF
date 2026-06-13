@@ -1,0 +1,25 @@
+﻿
+=== getBuyback\( count 1 ===
+y",y)}getDividenInfo(){return this.http.post("/api/etf/DividendInfo",null)}getBenchmark(y=null){return this.http.post(`/api/etf/benchmark/${y}`,null)}getBuyback(y){return this.http.post("/api/etf/buyback",y)}getIndex(){return this.http.post("/api/etf/index",null)}getIndexDetail(y){return this.http.post(`/api/etf/indexdetail/${y}`,null)}getIndexTag(y){return this.http.post(`/api/etf/IndexTag?TagID=${y}`,null)}getDeliverys(){return this.http.post("/api/etf/delivery",null)}getItemsForDropdown(){ret
+
+=== \.buyback\( count 0 ===
+
+=== stocks\s*= count 0 ===
+
+=== stocNo count 2 ===
+7\u56de\u6e05\u55ae\u516c\u544a={options:{skipHeader:!0},data:x}}if(y.stocks.length){let S=[];y.stocks.forEach(x=>{S.push({\u80a1\u7968\u4ee3\u865f:x.stocNo,\u80a1\u7968\u540d\u7a31:x.stocName,"\u6301\u80a1\u6b0a\u91cd(%)":x.weightRound+"%",\u80a1\u6578:x.shareFormat})}),v.\u80a1\u7968={options:{skipHeader:!1},data:S}}if(y.bonds.length){let S=[];y.bonds.forEach(x=>{S.push({\u50b5\u5238\u4ee3\u865f:x.bondNo,\u50b5\u5238\u540d\u7a31:x.bondName,\u9762\u984d:x.faceValueFormat,\u5e02\u503c:x.marketVa
+}`]),v.\u6295\u8cc7\u7d44\u5408={options:{skipHeader:!0},data:x}}if(y.stocks.length){let S=[];y.stocks.forEach(x=>{S.push({\u80a1\u7968\u4ee3\u865f:x.stocNo,\u80a1\u7968\u540d\u7a31:x.stocName,"\u6301\u80a1\u6b0a\u91cd(%)":x.weightRound+"%",\u80a1\u6578:x.shareFormat})}),v.\u80a1\u7968={options:{skipHeader:!1},data:S}}if(y.bonds.length){let S=[];y.bonds.forEach(x=>{S.push({\u50b5\u5238\u4ee3\u865f:x.bondNo,\u50b5\u5238\u540d\u7a31:x.bondName,\u9762\u984d:x.faceValueFormat,\u5e02\u503c:x.marketVa
+
+=== weightRound count 6 ===
+s.length){let S=[];y.stocks.forEach(x=>{S.push({\u80a1\u7968\u4ee3\u865f:x.stocNo,\u80a1\u7968\u540d\u7a31:x.stocName,"\u6301\u80a1\u6b0a\u91cd(%)":x.weightRound+"%",\u80a1\u6578:x.shareFormat})}),v.\u80a1\u7968={options:{skipHeader:!1},data:S}}if(y.bonds.length){let S=[];y.bonds.forEach(x=>{S.push({\u50b5\u5238\u4ee3\u865f:x.bondNo,\u50b5\u5238\u540d\u7a31:x.bondName,\u9762\u984d:x.faceValueFormat,\u5e02\u503c:x.marketValueFormat,"\u6b0a\u91cd(%)":x.weightRound+"%"})}),v.\u50b5\u5238={options:{
+b5\u5238\u4ee3\u865f:x.bondNo,\u50b5\u5238\u540d\u7a31:x.bondName,\u9762\u984d:x.faceValueFormat,\u5e02\u503c:x.marketValueFormat,"\u6b0a\u91cd(%)":x.weightRound+"%"})}),v.\u50b5\u5238={options:{skipHeader:!1},data:S}}if(y.futures.length){let S=[];y.futures.forEach(x=>{S.push({\u671f\u8ca8\u540d\u7a31:x.txDesc,"\u6301\u80a1\u6b0a\u91cd(%)":x.weightRound+"%",\u53e3\u6578:x.lotRound,\u5951\u7d04\u5e74\u7d04:x.txDate})}),v.\u671f\u8ca8={options:{skipHeader:!1},data:S}}if(y.rps.length){let S=[];y.rp
+{skipHeader:!1},data:S}}if(y.futures.length){let S=[];y.futures.forEach(x=>{S.push({\u671f\u8ca8\u540d\u7a31:x.txDesc,"\u6301\u80a1\u6b0a\u91cd(%)":x.weightRound+"%",\u53e3\u6578:x.lotRound,\u5951\u7d04\u5e74\u7d04:x.txDate})}),v.\u671f\u8ca8={options:{skipHeader:!1},data:S}}if(y.rps.length){let S=[];y.rps.forEach(x=>{S.push([x.bondsName,x.bondsMoney])}),v.\u9644\u8cb7\u56de\u50b5\u5238={options:{skipHeader:!0},data:S}}if(y.assets.length){let S=[];y.assets.forEach((x,N)=>{S.push([x.asDesc,x.asMo
+s.length){let S=[];y.stocks.forEach(x=>{S.push({\u80a1\u7968\u4ee3\u865f:x.stocNo,\u80a1\u7968\u540d\u7a31:x.stocName,"\u6301\u80a1\u6b0a\u91cd(%)":x.weightRound+"%",\u80a1\u6578:x.shareFormat})}),v.\u80a1\u7968={options:{skipHeader:!1},data:S}}if(y.bonds.length){let S=[];y.bonds.forEach(x=>{S.push({\u50b5\u5238\u4ee3\u865f:x.bondNo,\u50b5\u5238\u540d\u7a31:x.bondName,\u9762\u984d:x.faceValueFormat,\u5e02\u503c:x.marketValueFormat,"\u6301\u80a1\u6b0a\u91cd(%)":x.weightRound+"%"})}),v.\u50b5\u523
+e3\u865f:x.bondNo,\u50b5\u5238\u540d\u7a31:x.bondName,\u9762\u984d:x.faceValueFormat,\u5e02\u503c:x.marketValueFormat,"\u6301\u80a1\u6b0a\u91cd(%)":x.weightRound+"%"})}),v.\u50b5\u5238={options:{skipHeader:!1},data:S}}if(y.futures.length){let S=[];y.futures.forEach(x=>{S.push({\u671f\u8ca8\u540d\u7a31:x.txDesc,"\u6301\u80a1\u6b0a\u91cd(%)":x.weightRound+"%",\u53e3\u6578:x.lotRound,\u5951\u7d04\u5e74\u7d04:x.txDate})}),v.\u671f\u8ca8={options:{skipHeader:!1},data:S}}if(y.rps.length){let S=[];y.rp
+{skipHeader:!1},data:S}}if(y.futures.length){let S=[];y.futures.forEach(x=>{S.push({\u671f\u8ca8\u540d\u7a31:x.txDesc,"\u6301\u80a1\u6b0a\u91cd(%)":x.weightRound+"%",\u53e3\u6578:x.lotRound,\u5951\u7d04\u5e74\u7d04:x.txDate})}),v.\u671f\u8ca8={options:{skipHeader:!1},data:S}}if(y.rps.length){let S=[];y.rps.forEach(x=>{S.push([x.bondsName,x.bondsMoney])}),v.\u9644\u8cb7\u56de\u50b5\u5238={options:{skipHeader:!0},data:S}}if(y.assets.length){let S=[];y.assets.forEach((x,N)=>{S.push([x.asDesc,x.asMo
+
+=== pcfDate count 0 ===
+
+=== fundNo count 0 ===
+
+pcf route hits 0

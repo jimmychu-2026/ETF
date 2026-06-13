@@ -1,0 +1,7 @@
+﻿st(`/api/fundperformance/detail/${y}`,null)}getCalendars(y){return this.http.post("/api/etf/calendar",{date:y})}getEtfCalendars(y){return this.http.post("/api/etf/etfcalendar",{date:y})}getEtfCalendarForIndex(y){return this.http.post("/api/etf/EtfCalendarEtfForIndex",{date:y})}getNav(){return this.http.post("/api/etf/nav",null)}getNavTag(y){return this.http.post(`/api/etf/navtag?TagID=${y}`,null)}getNavPart(y){return this.http.post("/api/etf/navPart",y)}getDividen(y,C){return this.http.post(`/api/etf/dividendData${C}/${y}`,null)}getDividenHistory(y){return this.http.post("/api/etf/dividendData
+---
+FH ERR 20260606: HTTP Error 404: Not Found
+FH ERR 2026-06-06: HTTP Error 404: Not Found
+FH ERR 2026/06/06: HTTP Error 404: Not Found
+stockhold ERR {'fundID': 'ETF21'}: HTTP Error 404: Not Found
+stockhold ERR {'fundID': '00929'}: HTTP Error 404: Not Found

@@ -1,0 +1,56 @@
+﻿api/ETF/DownloadETFHistoryEstimateNavData
+api/ETF/DownloadETFWeightExcel
+api/ETF/GetCurrencyExchangeList
+api/ETF/GetETFAssets
+api/ETF/GetETFBuyNotice
+api/ETF/GetETFCharge
+api/ETF/GetETFCode
+api/ETF/GetETFDailyMessageList
+api/ETF/GetETFDetailAllotList
+api/ETF/GetETFDetailBalList
+api/ETF/GetETFDetailBondList
+api/ETF/GetETFDetailBuyList
+api/ETF/GetETFDetailETFList
+api/ETF/GetETFDetailFundList
+api/ETF/GetETFDetailFutureList
+api/ETF/GetETFDetailPriceList
+api/ETF/GetETFDetailStockList
+api/ETF/GetETFFeature
+api/ETF/GetETFFundIndex
+api/ETF/GetETFInfoMain
+api/ETF/GetETFIntroduce
+api/ETF/GetETFList
+api/ETF/GetETFOptionList
+api/ETF/GetETFWarning
+api/ETF/GetEtf30DaysNavAndPrice
+api/ETF/GetEtfInstantNavManual
+api/ETF/GetEtfInstantNavTerms
+api/ETF/GetEtfNavPri
+api/ETF/GetEtfNewestIndexTerms
+api/ETF/GetFlowDealerList
+api/ETF/GetHomeIndexTrendList
+api/ETF/GetHotETFPerformanceList
+api/ETF/GetIndexFeature
+api/ETF/GetIndexInfo
+api/ETF/GetIndexStockWeights
+api/ETF/GetIndexTrend
+api/ETF/GetIndexTrendList
+api/ETF/GetLRETFIndexRealTimeTrendList
+api/ETF/GetPartDealerList
+api/ETF/GetPreviewFrequenceData
+api/ETF/GetRealTimeEstimateNav
+api/ETF/GetRealTimeEstimateNavList
+api/ETF/GetRecommandETFList
+api/ETF/GetRecommandETFPerformanceList
+api/ETF/GetReferCurrencyExchangeList
+api/ETF/GetTblEtfDocMgrData
+--- pcf ---
+ist:t=>this.GetPromise("api/BuySale/GetBondsList",t),GetLastPCFForeignCurr:t=>this.GetPromise("api/BuySale/GetLastPCFForeignCurr",t),DownloadBuySaleExcel:t=>this.GetPromise("api/BuySa
+\u898b\u554f\u984c","\u7533\u8cfc\u8cb7\u56de\u6e05\u55ae":"PCF","\u53c3\u8207\u5238\u5546 / \u6d41\u52d5\u91cf\u63d0\u4f9b\u8005":"Participating Dealers / Liquidity Providers","\u53c
+s derived from the real-time price of each component in the PCF, times the real-time reference FX rate.","(2) \u9810\u4f30\u6de8\u503c\u4e4b\u5404\u9805\u6578\u64da\u50c5\u4f9b\u53c3\
+t value (NAV)."},"ETF-Purchase":{title:"Creation/Redemption PCF"},"ETF-Holdings":{"\u671f\u8ca8":"Futures (Notional)","\u8b49\u5238\u4ee3\u78bc":"Stock Code","\u80a1\u6578":"Shares","
+ing"}};i["ETF-Purchase"]={back:"Back to Cathay SITE",title:"PCF",shift:"Switch ETF",excel:"Download Excel",download:"\u4e0b\u8f09\u7533\u8cfc\u8cb7\u56de\u7533\u8acb\u66f8",btnOn:"Exp
+and All",btnOff:"Hide",titleA:"Creation/Redemption PCF",titleAp:"Creation/Redemption PCF",textA1:"Fund Net Asset Value",textA2:"The Amount of Total Advance Subscription",text
+c7\u8a0a",description:"\u7533\u8cfc\u8cb7\u56de\u6e05\u55ae(PCF)\u63d0\u4f9b\u5404\u6a94ETF\u7533\u8cfc\u548c\u8d16\u56de\u7684\u6700\u65b0\u6578\u64da\uff0c\u5305\u62ec\u57fa\u91d1\u
+0b\u6cf0, \u7533\u8cfc\u8cb7\u56de\u6de8\u55ae\u4f4d\u6578, pcf, etf\u6de8\u8cc7\u7522\u50f9\u503c, etf\u53d7\u76ca\u6b0a\u55ae\u4f4d, etf\u9810\u6536\u7533\u8cfc\u7e3d\u50f9\u91d1, e
+a0a","og:description":"\u7533\u8cfc\u8cb7\u56de\u6e05\u55ae(PCF)\u63d0\u4f9b\u5404\u6a94ETF\u7533\u8cfc\u548c\u8d16\u56de\u7684\u6700\u65b0\u6578\u64da\uff0c\u5305\u62ec\u57fa\u91d1\u

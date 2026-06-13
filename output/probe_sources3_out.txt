@@ -1,0 +1,115 @@
+﻿=== Fuh Hwa api.js ===
+file util_footer.js len 326785
+  /api/RouteMap
+  /api/ad
+  /api/fund
+  /api/fundNav
+  /api/fundPerf
+  /api/fundDividend
+  /api/CalDividend
+  /api/Cal
+  /api/front
+  /api/frontdetail
+  /api/fundList
+  /api/warning
+  /api/indexChange
+  /api/tag
+  /api/media
+  /api/epaper
+  /api/login
+  /api/favorite
+  /api/Myfavorite
+  /api/recommend
+  /api/frontindex
+  /api/retireindex
+  /api/retire
+  /api/favoriteRetire
+  /api/offer
+  /api/stockhold
+  /api/filter
+  /api/award
+  /api/getCalFundList
+  /api/calSIP
+  /api/calComplex
+  /api/event
+  /api/document
+  /api/ETFRTnav
+  /api/assets
+  /api/ETFPcf
+  /api/ETFfeelist
+  /api/TopETF
+  /api/ETFindex
+  /api/ETFRTnavchart
+  /api/EI_PortfolioData
+  /api/EI_DailyROIData
+  /api/EI_PortfolioPerfData
+  /api/ETFdpChart
+t(exports, "getDocument", ()=>getDocument);
+
+parcelHelpers.export(exports, "getETFRTnav", ()=>getETFRTnav);
+
+parcelHelpers.export(exports, "getAssets", ()=>getAssets);
+
+parcelHelpers.export(exports, "getETFPcf", ()=>getETFPcf);
+
+parcelHelpers.export(exports, "getETFfeelist", ()=>getETFfeelist);
+
+parcelHelpers.export(exports, "getTopETF", ()=>getTopETF);
+
+parcelHelpers.export(exports, "getETFIndex", ()=>getETFIndex);
+
+parcelHelpers.export(exports, "getETFRTnavchart", ()=>getETFRTnavchart);
+
+parcelHelpers.export(exports, "getETFEIPortfolioData", ()=>getETFEIPortfolioData);
+
+parcelHelpers.export(
+file etf_trade_list.js len 22653
+onst date = vm.elem.search.date.value.replace(/\//g, "");
+
+            const searchParam = `fundID=${fundID}&pcfDate=${date}`;
+
+            (0, _factory.store).isLoaded = false;
+
+            (0, _api.getETFPcf)(searchParam).then((res)=>{
+
+                const { result  } = res;
+
+                if (result) {
+
+                    vm.etfPcf = result[0];
+
+                    vm.rate = result[0].rate;
+
+                }
+
+                vm.$nextTick(()=>{
+
+                    (0, _factory.store).isLoaded = true;
+
+                });
+
+            });
+
+            if (vm.current !== fundID) {
+
+    
+
+=== Capital CFWeb ===
+OK items {'stocNo': '00919'} {"code":200,"data":[{"fundNo":"399","stockNo":"00982A","shortName":"主動群益台灣強棒"},{"fundNo":"500","stockNo":"00992A","shortName":"主動群益科技創新"},{"fundNo":"195","stockNo":"00919","shortName":"群益台灣精選高息"},{"fundNo":"501","stockNo
+OK items {'etfCode': '00919'} {"code":200,"data":[{"fundNo":"399","stockNo":"00982A","shortName":"主動群益台灣強棒"},{"fundNo":"500","stockNo":"00992A","shortName":"主動群益科技創新"},{"fundNo":"195","stockNo":"00919","shortName":"群益台灣精選高息"},{"fundNo":"501","stockNo
+OK items {'fundId': '195'} {"code":200,"data":[{"fundNo":"399","stockNo":"00982A","shortName":"主動群益台灣強棒"},{"fundNo":"500","stockNo":"00992A","shortName":"主動群益科技創新"},{"fundNo":"195","stockNo":"00919","shortName":"群益台灣精選高息"},{"fundNo":"501","stockNo
+OK items {'code': '00919'} {"code":200,"data":[{"fundNo":"399","stockNo":"00982A","shortName":"主動群益台灣強棒"},{"fundNo":"500","stockNo":"00992A","shortName":"主動群益科技創新"},{"fundNo":"195","stockNo":"00919","shortName":"群益台灣精選高息"},{"fundNo":"501","stockNo
+OK delivery {'stocNo': '00919'} {"code":200,"data":[{"itemNo":"00919","itemName":"群益台灣精選高息","purchaseInAdvance":"110%","deliveryTime":"12:00","registrationTime":"T+2","soldTime":"T+1","purchaseTime":"T+1","cancellationTime":"T+2","repurchaseTime":"T+3"
+OK delivery {'etfCode': '00919'} {"code":200,"data":[{"itemNo":"00919","itemName":"群益台灣精選高息","purchaseInAdvance":"110%","deliveryTime":"12:00","registrationTime":"T+2","soldTime":"T+1","purchaseTime":"T+1","cancellationTime":"T+2","repurchaseTime":"T+3"
+OK delivery {'fundId': '195'} {"code":200,"data":[{"itemNo":"00919","itemName":"群益台灣精選高息","purchaseInAdvance":"110%","deliveryTime":"12:00","registrationTime":"T+2","soldTime":"T+1","purchaseTime":"T+1","cancellationTime":"T+2","repurchaseTime":"T+3"
+OK delivery {'code': '00919'} {"code":200,"data":[{"itemNo":"00919","itemName":"群益台灣精選高息","purchaseInAdvance":"110%","deliveryTime":"12:00","registrationTime":"T+2","soldTime":"T+1","purchaseTime":"T+1","cancellationTime":"T+2","repurchaseTime":"T+3"
+
+=== Cathay detail ECN ===
+holdings.com/funds
+holdings.com/funds</u></span></a><span style=
+Holdings LLC (“Dow Jones”)之註冊商標；這些商標已授權予SPDJI使用，並已再授權予國泰投信使用於特定用途。SPDJI、Dow Jones、S&amp;
+Holdings LLC（”Dow Jones”）的註冊商標；這些商標已授權予 SPDJI 使用，並已再授權予國泰投信用於特定用途。SPDJI、Dow Jones、S&amp;
+path /ETF/detail/ECN/holdings hits True
+path /ETF/detail/00878/holdings hits True
+path /ETF/holdings/00878 hits True
+path /ETF/holdings/ECN hits True

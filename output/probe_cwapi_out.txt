@@ -1,0 +1,27 @@
+﻿ERR GET ETF/GetIndexStockWeights {'ETFCode': '00878'}: HTTP Error 400: Bad Request
+GET ETF/GetIndexStockWeights {'FundCode': '00878'} len=101
+{"result":{"date":null,"stockWeights":[]},"returnCode":"4005","success":false,"returnMessage":"查無資料"}
+---
+ERR GET ETF/GetIndexStockWeights {'Code': '00878'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetIndexStockWeights {'ETFNo': '00878'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetIndexStockWeights {'FundNo': 'ECN'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetIndexStockWeights {'IndexCode': 'ECN'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetETFDetailStockList {'ETFCode': '00878'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetETFDetailStockList {'Code': '00878'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetETFDetailStockList {'ETFNo': '00878'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetETFDetailStockList {'FundNo': 'ECN'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetETFDetailStockList {'IndexCode': 'ECN'}: HTTP Error 400: Bad Request
+ERR GET BuySale/GetLastPCFForeignCurr {'ETFCode': '00878'}: HTTP Error 400: Bad Request
+ERR GET BuySale/GetLastPCFForeignCurr {'FundCode': '00878'}: HTTP Error 400: Bad Request
+ERR GET BuySale/GetLastPCFForeignCurr {'Code': '00878'}: HTTP Error 400: Bad Request
+ERR GET BuySale/GetLastPCFForeignCurr {'ETFNo': '00878'}: HTTP Error 400: Bad Request
+ERR GET BuySale/GetLastPCFForeignCurr {'FundNo': 'ECN'}: HTTP Error 400: Bad Request
+ERR GET BuySale/GetLastPCFForeignCurr {'IndexCode': 'ECN'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetETFInfoMain {'ETFCode': '00878'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetETFInfoMain {'Code': '00878'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetETFInfoMain {'ETFNo': '00878'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetETFInfoMain {'FundNo': 'ECN'}: HTTP Error 400: Bad Request
+ERR GET ETF/GetETFInfoMain {'IndexCode': 'ECN'}: HTTP Error 400: Bad Request
+BuySale endpoints: ['api/BuySale/DownloadBuySaleExcel', 'api/BuySale/GetBondsList', 'api/BuySale/GetBuySale', 'api/BuySale/GetBuySaleFeeList', 'api/BuySale/GetFuturesList', 'api/BuySale/GetLastPCFForeignCurr', 'api/BuySale/GetStocksList']
+BS api/BuySale/GetBuySaleFeeList {'ETFCode': '00878'}: {"result":[{"fundCode":"EA","name":"00400A 主動國泰動能高息(基金之配息來源可能為收益平準金且並無保證收益及配息)","stockCode":"00400A","stockShortName":"主動國泰動能高息(基金之配息來源可能為收益平準金且並無保證收益及配息)","stockShortNameFix":"主動國泰動能高息","warnings":"(基金之配息來源可能為收益平準金且並無保證收益及配息)","limitTime":"12:00","basketUnit":"500,000","preAmtRate":"110","buyTradeRate":"10","redemTradeRate":"40","buyTradeRateDate":"","redemTradeRateDate":"","feeApply":"5,000","currency":"新台幣"},{"fundCode":"66","name":"00636 國泰中國A50","stockCode":"00636","stockShortName":"國泰中國A50","stockShortNameFix":"國泰中國A50","warnings":"","limitTime":"12:00","basketUnit":"500,000","preAmtRate":"110","buyTradeRate":"10","redemTradeRate":"35","buyTradeRateDate":"","redemTradeRateDate":"","feeApply":"5,000","currency":"新台幣"},{"fundCode":"82","name":"00655L 國泰中國A50正2","stockCode":"00655L","st
+BS api/BuySale/GetBuySaleFeeList {'FundCode': '00878'}: {"result":[{"fundCode":"EA","name":"00400A 主動國泰動能高息(基金之配息來源可能為收益平準金且並無保證收益及配息)","stockCode":"00400A","stockShortName":"主動國泰動能高息(基金之配息來源可能為收益平準金且並無保證收益及配息)","stockShortNameFix":"主動國泰動能高息","warnings":"(基金之配息來源可能為收益平準金且並無保證收益及配息)","limitTime":"12:00","basketUnit":"500,000","preAmtRate":"110","buyTradeRate":"10","redemTradeRate":"40","buyTradeRateDate":"","redemTradeRateDate":"","feeApply":"5,000","currency":"新台幣"},{"fundCode":"66","name":"00636 國泰中國A50","stockCode":"00636","stockShortName":"國泰中國A50","stockShortNameFix":"國泰中國A50","warnings":"","limitTime":"12:00","basketUnit":"500,000","preAmtRate":"110","buyTradeRate":"10","redemTradeRate":"35","buyTradeRateDate":"","redemTradeRateDate":"","feeApply":"5,000","currency":"新台幣"},{"fundCode":"82","name":"00655L 國泰中國A50正2","stockCode":"00655L","st

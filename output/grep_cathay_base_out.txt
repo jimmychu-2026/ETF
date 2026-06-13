@@ -1,0 +1,68 @@
+﻿
+--- baseUrl ---
+Browser=this.ssr.isBrowser,this.isServer=this.ssr.isServer,this.config=d.D,this.baseUrl=d.D.rootUrl.slice(0,-1),this.now=new Date,this.isMobile=this.breakPointServ.isMobile,this.isTabletToPhone=this.breakPointServ.isTabletToPhone,this.isPC=this.breakPointServ.isPC,this.isPCToTablet=this.breakPointServ.isPCToTablet,this.isWidth1366=this.breakPointServ.isWidth1366,this.getWindowWidth=this.breakPointServ.getWindowWidth,this.bpMatch=(t,n=0)=>{const e=this.breakPointServ.bpMatch(t
+
+--- baseUrl ---
+er=s,this.GetLRETFIndexRealTimeTrendEmit=new i.vpe,this.jslib=window.jslib,this.baseUrl=a.D.rootUrl,this.CustAccount={CheckMailCount:t=>this.PostPromise("onlineapi/api/v1/Cust/Account/CheckMailCount",t),Login:t=>this.PostPromise("onlineapi/api/v1/Cust/Account/Login",t),Info:t=>this.PostPromise("onlineapi/api/v1/Cust/Account/Info",t)},this.Login={GuestRegister:t=>this.PostPromise("api/Login/GuestRegister",t),Login:t=>this.LoginPost("api/Login",t),Register:t=>this.PostPromise("
+
+--- apiUrl ---
+i/Fund/GetFundCompareList",t),DownloadRangeHistoryAllotData:t=>{window.open(a.D.apiUrl+"api/Fund/DownloadRangeHistoryAllotData"+this.ObjToParam(t),"_self")},GetFundCharge:t=>this.GetPromise("api/Fund/GetFundCharge",t),GetFundCode:t=>this.GetPromise("api/Fund/GetFundCode",t),GetFundDataDownload:t=>this.GetPromise("api/Fund/GetFundDataDownload",t),GetFundStrategy:t=>this.GetPromise("api/Fund/GetFundStrategy",t),GetFundAwardList:t=>this.GetPromise("api/Fund/GetFundAwardList",t),
+
+--- apiUrl ---
+e("api/ETF/GetETFCode",t),DownloadETFHistoryEstimateNavData:t=>{window.open(a.D.apiUrl+"api/ETF/DownloadETFHistoryEstimateNavData"+this.ObjToParam(t),"_blank")},GetETFFeature:t=>this.GetPromise("api/ETF/GetETFFeature",t),GetIndexFeature:t=>this.GetPromise("api/ETF/GetIndexFeature",t),GetIndexInfo:t=>this.GetPromise("api/ETF/GetIndexInfo",t),GetETFBuyNotice:t=>this.GetPromise("api/ETF/GetETFBuyNotice",t),GetPartDealerList:t=>this.GetPromise("api/ETF/GetPartDealerList",t),GetFl
+
+--- apiUrl ---
+)},t=>{o(t)})}))}LoginPost(t,n){var i=this;return this.pop.setLoading(!0),t=a.D.apiUrl+t,new Promise(function(){var r=(0,o.Z)(function*(o,r){const s=yield Promise.resolve().then(e.t.bind(e,8009,23)),c=s.enc.Utf8.parse(a.D.AES_KEY),l=s.enc.Utf8.parse(a.D.AES_IV),d={account:n.account,loginKey:s.AES.encrypt(n.pwd,c,{iv:l}).toString()};i.http.post(t,d,i.getOption()).toPromise().then(t=>{i.pop.setLoading(!1),o(t)},t=>{i.pop.setLoading(!1),i.ExceptionHandle(t),r(t)})});return funct
+
+--- apiUrl ---
+his,arguments)}}())}MailValidAuthPost(t,n){return this.pop.setLoading(!0),t=a.D.apiUrl+t,new Promise((e,o)=>{var i={"Content-Type":"application/json",authorization:"Bearer "+n.token,lang:this.i18n.getLangCode()},a=new r.WM(i);this.http.post(t,{},{headers:a}).toPromise().then(t=>{this.pop.setLoading(!1),e(t)},t=>{this.pop.setLoading(!1),o(t)})})}PostBlobPromise(t,n){return this.isBrowser||console.warn("ssr Check",t,n),new Promise((e,o)=>{this.PostBlob(t,n).then(t=>{e(t)},t=>{o
+
+--- apiUrl ---
+wser&&"1"==this.jslib.UrlParam().IsTest&&(o=Object.assign(o,{IsTest:!0})),t=a.D.apiUrl+t,t+=this.ObjToParam(o),new Promise((n,o)=>{this.http.get(t,this.getOption()).toPromise().then(t=>{e||this.pop.setLoading(!1),n(t)},t=>{e||this.pop.setLoading(!1),this.ExceptionHandle(t),o(t)})})}Post(t,n){this.pop.setLoading(!0);var e=n||{};return t=a.D.apiUrl+t,new Promise((n,o)=>{this.http.post(t,e,this.getOption()).toPromise().then(t=>{this.pop.setLoading(!1),n(t)},t=>{this.pop.setLoadi
+
+--- cathaysite ---
+(self.webpackChunkcathaysite=self.webpackChunkcathaysite||[]).push([[179],{8255:t=>{function n(t){return Promise.resolve().then(()=>{var n=new Error("Cannot find module '"+t+"'");throw n.code="MODULE_NOT_FOUND",n})}n.keys=()=>[],n.resolve=n,n.id=8255,t.exports=n},4340:(t,n,e)=>{"use strict";e.d(n,{X:()=>a});var o=e(9247),i=e(1761),r=e(8457);let a=(()=>{class t{}return t.\u0275fac=function(n){return new(n||t)},t.\u0
+
+--- cathaysite ---
+(self.webpackChunkcathaysite=self.webpackChunkcathaysite||[]).push([[179],{8255:t=>{function n(t){return Promise.resolve().then(()=>{var n=new Error("Cannot find module '"+t+"'");throw n.code="MODULE_NOT_FOUND",n})}n.keys=()=>[],n.resolve=n,n.id=8255,t.exports=n},4340:(t,n,e)=>{"use strict";e.d(n,{X:()=>a});var o=e(9247),i=e(1761),r=e(8457);let a=(()=>{class t{}return t.\u0275fac=function(n){return new(n||t)},t.\u0275mod=r.oAB({type:t}),t.\u0
+
+--- cathaysite ---
+","1.5","stroke-linecap","round","stroke-linejoin","round"],["href","https://mb.cathaysite.com.tw/etf/dividend?utm_source=website&utm_medium=megamenu&utm_campaign=constant","target","_blank"],["d","M13 25H22C22.7956 25 23.5587 24.6839 24.1213 24.1213C24.6839 23.5587 25 22.7957 25 22V21H15V23C15 23.5304 14.7893 24.0391 14.4142 24.4142C14.0391 24.7893 13.5304 25 13 25ZM13 25C12.4696 25 11.9609 24.7893 11.5858 24.4142C11.2107 24.0391 11 23.5304 11 23V9C11 8.60444 10.8827 8.21776
+
+--- cathaysite ---
+,initShowType:4})}goToTrade(){this.shareSer.devMode?window.open("https://online.cathaysite.com.tw/fundcart?fcode="+this.fundData.fundCode,"_blank"):window.open(o.D.EFamilyUrl+"fundcart?fcode="+this.fundData.fundCode,"_blank")}ngOnDestroy(){this.destroy$.next(),this.destroy$.complete()}}return t.\u0275fac=function(n){return new(n||t)(a.Y36(s.N),a.Y36(c.A7),a.Y36(c.I5))},t.\u0275cmp=a.Xpm({type:t,selectors:[["app-i-want-buy-button"]],inputs:{fundData:"fundData",option:"option",
+
+--- cathaysite ---
+0b\u6cf0\u6295\u4fe1\u70ba\u5bc4\u4ef6\u4eba\u4e4b\u96fb\u5b50\u90f5\u4ef6(e080@cathaysite.com.tw)\u52a0\u5165\u60a8\u96fb\u5b50\u4fe1\u7bb1\u7684\u901a\u8a0a\u9304\u8207\u767d\u540d\u55ae\u3002 "),s.qZA(),s.TgZ(25,"li"),s._uU(26," \u60a8\u6240\u586b\u5beb\u7684\u500b\u4eba\u8cc7\u6599\uff0c\u5747\u53d7\u4e2d\u83ef\u6c11\u570b\u300c\u96fb\u8166\u8655\u7406\u500b\u4eba\u8cc7\u6599\u4fdd\u5bc6\u6cd5\u300d\u6240\u4fdd\u8b77\uff0c\u4e26\u4e14\u53ea\u6703\u4f7f\u7528\u5728\u50b3\u
+
+--- PostPromise ---
+=window.jslib,this.baseUrl=a.D.rootUrl,this.CustAccount={CheckMailCount:t=>this.PostPromise("onlineapi/api/v1/Cust/Account/CheckMailCount",t),Login:t=>this.PostPromise("onlineapi/api/v1/Cust/Account/Login",t),Info:t=>this.PostPromise("onlineapi/api/v1/Cust/Account/Info",t)},this.Login={GuestRegister:t=>this.PostPromise("api/Login/GuestRegister",t),Login:t=>this.LoginPost("api/Login",t),Register:t=>this.PostPromise("api/Login/Register",t),ForgetPassword:t=>this.PostPromise("ap
+
+--- PostPromise ---
+his.PostPromise("onlineapi/api/v1/Cust/Account/CheckMailCount",t),Login:t=>this.PostPromise("onlineapi/api/v1/Cust/Account/Login",t),Info:t=>this.PostPromise("onlineapi/api/v1/Cust/Account/Info",t)},this.Login={GuestRegister:t=>this.PostPromise("api/Login/GuestRegister",t),Login:t=>this.LoginPost("api/Login",t),Register:t=>this.PostPromise("api/Login/Register",t),ForgetPassword:t=>this.PostPromise("api/Login/ForgetPassword",t),ForgetPasswordValidateEmail:t=>this.PostPromise("
+
+--- PostPromise ---
+Login:t=>this.PostPromise("onlineapi/api/v1/Cust/Account/Login",t),Info:t=>this.PostPromise("onlineapi/api/v1/Cust/Account/Info",t)},this.Login={GuestRegister:t=>this.PostPromise("api/Login/GuestRegister",t),Login:t=>this.LoginPost("api/Login",t),Register:t=>this.PostPromise("api/Login/Register",t),ForgetPassword:t=>this.PostPromise("api/Login/ForgetPassword",t),ForgetPasswordValidateEmail:t=>this.PostPromise("api/Login/ForgetPasswordValidateEmail",t),SocialTokenValidate:t=>t
+
+--- PostPromise ---
+mise("onlineapi/api/v1/Cust/Account/Info",t)},this.Login={GuestRegister:t=>this.PostPromise("api/Login/GuestRegister",t),Login:t=>this.LoginPost("api/Login",t),Register:t=>this.PostPromise("api/Login/Register",t),ForgetPassword:t=>this.PostPromise("api/Login/ForgetPassword",t),ForgetPasswordValidateEmail:t=>this.PostPromise("api/Login/ForgetPasswordValidateEmail",t),SocialTokenValidate:t=>this.PostPromise("api/Login/SocialTokenValidate",t),SocialEmailConfirm:t=>this.PostPromi
+
+--- PostPromise ---
+Login/GuestRegister",t),Login:t=>this.LoginPost("api/Login",t),Register:t=>this.PostPromise("api/Login/Register",t),ForgetPassword:t=>this.PostPromise("api/Login/ForgetPassword",t),ForgetPasswordValidateEmail:t=>this.PostPromise("api/Login/ForgetPasswordValidateEmail",t),SocialTokenValidate:t=>this.PostPromise("api/Login/SocialTokenValidate",t),SocialEmailConfirm:t=>this.PostPromise("api/Login/SocialEmailConfirm",t),LoginBindingWeb:t=>this.PostPromise("api/Login/LoginBindingW
+
+--- GetPromise ---
+t=>this.PostPromise("api/Login/Logout",t)},this.Home={GetHomeBannerList:t=>this.GetPromise("api/Home/GetHomeBannerList",t),GetHomeBannerLayer2List:t=>this.GetPromise("api/Home/GetHomeBannerLayer2List",t),GetChargebackList:t=>this.GetPromise("api/Home/GetChargebackList",t),GetChargebackOverseaList:t=>this.GetPromise("api/Home/GetChargebackOverseaList",t),GetHomeAdMainSubList:t=>this.GetPromise("api/Home/GetHomeAdMainSubList",t),GetHomeAnnouncement:t=>this.GetPromise("api/Home/
+
+--- GetPromise ---
+this.GetPromise("api/Home/GetHomeBannerList",t),GetHomeBannerLayer2List:t=>this.GetPromise("api/Home/GetHomeBannerLayer2List",t),GetChargebackList:t=>this.GetPromise("api/Home/GetChargebackList",t),GetChargebackOverseaList:t=>this.GetPromise("api/Home/GetChargebackOverseaList",t),GetHomeAdMainSubList:t=>this.GetPromise("api/Home/GetHomeAdMainSubList",t),GetHomeAnnouncement:t=>this.GetPromise("api/Home/GetHomeAnnouncement",t),GetFooterPrivacy:t=>this.GetPromise("api/Home/GetFo
+
+--- GetPromise ---
+this.GetPromise("api/Home/GetHomeBannerLayer2List",t),GetChargebackList:t=>this.GetPromise("api/Home/GetChargebackList",t),GetChargebackOverseaList:t=>this.GetPromise("api/Home/GetChargebackOverseaList",t),GetHomeAdMainSubList:t=>this.GetPromise("api/Home/GetHomeAdMainSubList",t),GetHomeAnnouncement:t=>this.GetPromise("api/Home/GetHomeAnnouncement",t),GetFooterPrivacy:t=>this.GetPromise("api/Home/GetFooterPrivacy",t),GetFooterSecurity:t=>this.GetPromise("api/Home/GetFooterSec
+
+--- GetPromise ---
+his.GetPromise("api/Home/GetChargebackList",t),GetChargebackOverseaList:t=>this.GetPromise("api/Home/GetChargebackOverseaList",t),GetHomeAdMainSubList:t=>this.GetPromise("api/Home/GetHomeAdMainSubList",t),GetHomeAnnouncement:t=>this.GetPromise("api/Home/GetHomeAnnouncement",t),GetFooterPrivacy:t=>this.GetPromise("api/Home/GetFooterPrivacy",t),GetFooterSecurity:t=>this.GetPromise("api/Home/GetFooterSecurity",t),GetFooterProfileterms:t=>this.GetPromise("api/Home/GetFooterProfil
+
+--- GetPromise ---
+.GetPromise("api/Home/GetChargebackOverseaList",t),GetHomeAdMainSubList:t=>this.GetPromise("api/Home/GetHomeAdMainSubList",t),GetHomeAnnouncement:t=>this.GetPromise("api/Home/GetHomeAnnouncement",t),GetFooterPrivacy:t=>this.GetPromise("api/Home/GetFooterPrivacy",t),GetFooterSecurity:t=>this.GetPromise("api/Home/GetFooterSecurity",t),GetFooterProfileterms:t=>this.GetPromise("api/Home/GetFooterProfileterms",t),GetHomeETFAdMainList:t=>this.GetPromise("api/Home/GetHomeETFAdMainLi
+URL https://cwapi.cathaysite.com.tw/
+URL https://cwapi.cathaysite.com.tw/uploads/07cathaynews__online/5717.pdf

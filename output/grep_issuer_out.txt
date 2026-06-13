@@ -1,0 +1,10 @@
+﻿--- etfDetailHoldings ---
+ls:{enabled:!1},showInLegend:!0}},series:[{id:"chart1",innerSize:"50%",type:"pie",name:"asa",data:t,showInLegend:!0}]})}etfDetailHoldings(t){return Highcharts.chart("holdings_bar",{chart:{type:"bar"},title:{text:""},xAxis:{useHTML:!0,categories:t.name,lineWidth:0,minorGridLineWidth:0,lineColor:"transparent",tickmarkPlacement:"on",labels:{style:{fontSize:"16px",top:"100px"},align:"right"}},yAxis:{m
+--- ETF-Holdings ---
+expressed as a percentage of the fund\u2019s net asset value (NAV)."},"ETF-Purchase":{title:"Creation/Redemption PCF"},"ETF-Holdings":{"\u671f\u8ca8":"Futures (Notional)","\u8b49\u5238\u4ee3\u78bc":"Stock Code","\u80a1\u6578":"Shares","\u6301\u80a1\u6b0a\u91cd":"Weighting","\u671f\u8ca8\u4ee3\u865f":"Futures Code","\u671f\u8ca8\u540d\u7a31":"Futures Name","\u53e3\u6578":"Lots","\u5951\u7d04\u5e74\
+--- ETF-Holdings ---
+\u4e0b\u8f09\u4eba\u81ea\u8ca0\u5b8c\u5168\u8cac\u4efb\u3002",warnText8:"\u4e0d\u540c\u610f",warnText9:"\u540c\u610f"},"ETF-Holdings":{"\u671f\u8ca8":"\u671f\u8ca8","\u8b49\u5238\u4ee3\u78bc":"\u8b49\u5238\u4ee3\u78bc","\u80a1\u6578":"\u80a1\u6578","\u6301\u80a1\u6b0a\u91cd":"\u6301\u80a1\u6b0a\u91cd","\u671f\u8ca8\u4ee3\u865f":"\u671f\u8ca8\u4ee3\u865f","\u671f\u8ca8\u540d\u7a31":"\u671f\u8ca8\u5
+CAP is.http.post(`/api/etf/reviewTimes/${y}`,null)}exportBuyback(y,C){let v={};if(y.pcf){let S=y.pcf,x=[];x.push(["\u6bcf\u7533\u8cfc\u57fa\u6578\u4e4b\u9810\u6536\u7533\u8cfc\u7e3d\u50f9\u91d1(\u5143)",`
+CAP pHeader:!0},data:S}}e.W.exportSheets(v,C)}exportEtfPortfolio(y,C){let v={};if(y.pcf){let S=y.pcf,x=[];x.push(["\u57fa\u91d1\u6de8\u8cc7\u7522\u50f9\u503c(\u5143)",`TWD ${S.navFormat}`]),x.push(["\u6bc
+CAP is.http.post(`/api/etf/reviewTimes/${y}`,null)}exportBuyback(y,C){let v={};if(y.pcf){let S=y.pcf,x=[];x.push(["\u6bcf\u7533\u8cfc\u57fa\u6578\u4e4b\u9810\u6536\u7533\u8cfc\u7e3d\u50f9\u91d1(\u5143)",`
+CAP pHeader:!0},data:S}}e.W.exportSheets(v,C)}exportEtfPortfolio(y,C){let v={};if(y.pcf){let S=y.pcf,x=[];x.push(["\u57fa\u91d1\u6de8\u8cc7\u7522\u50f9\u503c(\u5143)",`TWD ${S.navFormat}`]),x.push(["\u6bc

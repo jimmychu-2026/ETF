@@ -1,0 +1,16 @@
+﻿=== Capital PCF page scripts ===
+HIT: s.http.post("/api/etf/DividendInfo",null)}getBenchmark(y=null){return this.http.post(`/api/etf/benchmark/${y}`,null)}getBuyback(y){return this.http.post("/api/etf/buyback",y)}getIndex(){return this.http.post("/api/etf/index",null)}getIndexDetail(y){return this.http.post(`/api/etf/indexdetail/${y}`,null)}getIndexTag(y){return 
+HIT: .66112 7.54545 7.543C7.78285 7.30561 7.78285 6.91967 7.54545 6.68228L6.68354 5.82157Z"],["routerLink","/etf/transaction/buyback"],["width","28","height","28","viewBox","0 0 28 28","fill","currentColor",1,"hd-fixedbutton__icon","buy-back","lazyloaded","lazy"],["d","M10.7438 22.3755H4.30076C4.08924 22.3755 3.91027 22.3022 3.763
+HIT: .66112 7.54545 7.543C7.78285 7.30561 7.78285 6.91967 7.54545 6.68228L6.68354 5.82157Z"],["routerLink","/etf/transaction/buyback"],["width","28","height","28","viewBox","0 0 28 28","fill","currentColor",1,"hd-fixedbutton__icon","buy-back","lazyloaded","lazy"],["d","M10.7438 22.3755H4.30076C4.08924 22.3755 3.91027 22.3022 3.763
+HIT: "/etf/product/cross/supplier"}],3:[{menuId:32,menuName:"\u7533\u8cfc\u8cb7\u56de\u6e05\u55ae",menuUrl:"/etf/transaction/buyback"},{menuId:33,menuName:"\u8ffd\u8e64\u5dee\u8ddd",menuUrl:"/etf/transaction/deviation"},{menuId:34,menuName:"\u6307\u6578\u6536\u76e4\u884c\u60c5",menuUrl:"/etf/transaction/indexclosing"},{menuId:35,m
+
+=== Cathay PCF page scripts ===
+scripts ['runtime.c851872391177720ecfe.js', 'polyfills.cc4681cbbf3e7e4ff0f2.js', 'scripts.8f51f916e7ad490a1c3e.js', 'vendor.039ee8c15f136f6e5000.js', 'main.1047ac4f81a3da4e7643.js']
+err runtime.c851872391177720ecfe.js unknown url type: 'runtime.c851872391177720ecfe.js'
+err polyfills.cc4681cbbf3e7e4ff0f2.js unknown url type: 'polyfills.cc4681cbbf3e7e4ff0f2.js'
+err scripts.8f51f916e7ad490a1c3e.js unknown url type: 'scripts.8f51f916e7ad490a1c3e.js'
+err vendor.039ee8c15f136f6e5000.js unknown url type: 'vendor.039ee8c15f136f6e5000.js'
+err main.1047ac4f81a3da4e7643.js unknown url type: 'main.1047ac4f81a3da4e7643.js'
+OLD ERR http://125.227.3.107/CapitalFundAPI/api/etf/pcf?fundId=00919: <urlopen error timed out>
+OLD ERR http://125.227.3.107/CapitalFundAPI/api/etf/pcf?fundNo=195: <urlopen error timed out>
+OLD ERR http://125.227.3.107/CapitalFundAPI/api/etf/buyback: <urlopen error timed out>

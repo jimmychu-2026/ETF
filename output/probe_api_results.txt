@@ -1,0 +1,95 @@
+=== cap_detail_195 ===
+{
+  "code": 200,
+  "data": {
+    "currencyId": "22",
+    "establishmentTime": "2022-10-13",
+    "storageBank": "中國信託商業銀行  ",
+    "investmentPolicy": "本基金原則上採完全複製法之指數化策略, 追蹤標的指數「臺灣指數公司特選臺灣上市上櫃精選高息指數」績效表現，於扣除各項必要費用後, 儘可能達到追蹤標的指數之績效表現, 並兼顧控制追蹤誤差值為投資管理目標",
+    "serviceCharge": "最高2% ",
+    "storageCharge": "0.035％ ",
+    "manageCharge": "0.30% ",
+    "awardContent": "<ul>\n\t<li>2023財資雜誌基金獎&nbsp; &nbsp; 【ETF產品大獎 評審三星獎】<br />\n\t&nbsp;</li>\n</ul>\n",
+    "otherContent": "",
+    "features": "<ul>\n\t<li><strong>精準高息、精準卡位、精準領息，進化版的高息ETF</strong><br />\n\t臺灣精選高息指數用宣告股利取代參考歷史或預測未來的方式，精準鎖定高息股；以最快的速度卡位高息股；讓每一分錢都能領到高股息；升級為進化版的高息ETF。</li>\n\t<li><strong>精準卡位+超前部署</strong><br />\n\t5月精準卡位高息股、12月超前部署隔年股息股價潛力股。布局永遠比別人早一步。</li>\n\t<li><strong>高股息X時間複利=越存越有利&nbsp;</strong><br />\n\t長時間投資高股息的00919，是實現雪球理論的首選工具。讓長期投資人越存越有利，完美打造源源不絕的未來現金流。&nbsp;<br />\n\t<br />\n\t<span style=\"color:#2980b9;\"><strong><u>本基金所追蹤指數屬Smart Beta（單因子/多因子）指數，指數選股側重於高股息個股，不保證該指數績效在任何時候的表現均優於市場行情，在某些市場環境下，如產業輪動致指數成分股表現不佳或受配息訊息影響時，指數績效可能落後市值加權指數或其他績效指標，且這種情況可能持續很長一段時間。此外提醒投資人，追蹤本指數之ETF相較於追蹤市值加權指數之ETF，可能有相當比例持股投資於市值較小之公司。</u></strong></span></li>\n</ul>\n",
+    "listingDate": "2022-10-20",
+    "stockCode": "00919 ",
+    "bloombergNo": "00919 TT",
+    "lipperNo": "68725670",
+    "evaluationMonth": "2、5、8、11月  ",
+    "indexBloombergNo": "IX0170 Index  ",
+    "indexName": "臺灣精選高息指數 ",
+    "indexSummary": "臺灣精選高息指數係以臺灣上市上櫃股票為母體，經流動性及指標篩選後，依照股利率由高至低排序並篩選出 40 檔股票。成分股依照股利率加權，輔以流動量指標調整權重，以表彰兼具高股息、獲利能力以及流動性之股票投資組合績效表現。",
+    "indexBaseDate": "2022 年 5 月 5 日",
+    "indexBasePoint": "5000 點  ",
+    "stockAdjustment": "每半年(5月第17個交易日、12月第7個交易日)重新審核成份股",
+    "liftingUnit": "0.01 ",
+    "riseFall": "10% ",
+    "creditTransaction": "上市當日即開放信用交易且無平盤下不得融券放空的限制 ",
+    "transactionTax": "1‰ ",
+    "secondaryTransactionFee": "最高 1.425 ‰ ",
+    "purchaseMethod": "現金 ",
+    "purchaseBase": "50萬個受益權單位數 ",
+    "purchaseFee": "最高不得超過 2% ",
+    "preReceiptRatio": null,
+    "orderDeliveryTime": null,
+    "purchaseRegistrationDate": null,
+    "secondarySoldTime": null,
+    "purchaseDeliveryDate": null,
+    "repurchaseCancellationDate": null,
+    "repurchaseDeliveryDate": null,
+    "managers": [
+      {
+        "managerName": "謝明志",
+        "incumbent": "群益投信基金經理",
+        "served": "元大投信專戶管理部全委投資經理人;  元大投信基金經理人 ; 群益投信基金經理人",
+        "education": "國立政治大學金融所碩士"
+      }
+    ],
+    "indexSpecialStatus": "是",
+    "indexSpecialRule": "本指數乃自臺灣上市上櫃股票中，經流動性指標篩選後， 再挑選近四季\nROE>0 有獲利之企業，並依照實際宣告股利與每股盈餘成⾧率計算股利\n率，最終按股利率由高至低排序，篩選出 40 檔股票。成分股依照股利率加權，輔以流動量指標調整權重，以表彰兼具高股息、獲利能力以及流動性之股票投資組合績效表現。",
+    "indexSpecialRisk": "本指數成分股聚焦於配發高股息且獲利能力佳之40 檔股票，選入成分股不\n全然是大型龍頭股，在產業配置上與傳統市值型指數也有些不同之處，且本指數採股利率加權方式，與傳統市值型指數採市值加權不同，故當配發高股息之股票漲幅落後大型權值股時，表現會不如傳統市值型指數，反之亦然。"
+  },
+  "message": null
+}
+
+=== cap_basic_195 ===
+{
+  "code": 200,
+  "data": {
+    "fundNo": "195",
+    "fundName": "群益台灣精選高息ETF（本基金之配息來源可能為收益平準金且基金並無保證收益及配息）",
+    "shortName": "群益台灣精選高息",
+    "stockNo": "00919",
+    "aphorism": "本基金之配息來源可能為收益平準金",
+    "isAward": true,
+    "profitFrequency": "季配",
+    "monthlyReport": "/fund/M195.pdf ",
+    "prospectus": "/fund/P195.pdf  ",
+    "shortProspectus": "/fund/SP195.pdf ",
+    "metaKeyword": "",
+    "metaDescription": "00919群益台灣精選高息 :  #tab#，精萃高息、超越經典..",
+    "ogTitle": "00919群益台灣精選高息 - #tab#｜群益投信理財網",
+    "ogDescription": "00919群益台灣精選高息 - #tab#｜群益投信理財網",
+    "ogImage": "",
+    "establishmentTime": "2022-10-13",
+    "nav": 30.77,
+    "navChangeRatio": 4.588715,
+    "navChangeRatioRound": "4.59%",
+    "navDateDisplay": "2026/06/09",
+    "isIndex": "Y"
+  },
+  "message": null
+}
+
+=== cap_delivery_195 ERROR ===
+HTTP Error 405: Method Not Allowed
+
+=== cap_items ERROR ===
+HTTP Error 405: Method Not Allowed
+
+=== fh_pcf ERROR ===
+HTTP Error 404: Not Found
+
+=== fh_stockhold ERROR ===
+HTTP Error 404: Not Found

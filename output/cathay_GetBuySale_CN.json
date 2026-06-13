@@ -1,0 +1,32 @@
+{
+  "result": {
+    "fundName": "國泰台灣ESG永續高股息ETF基金",
+    "pbType": "2",
+    "stockCode": "00878",
+    "stockShortName": "國泰永續高股息(基金之配息來源可能為收益平準金且並無保證收益及配息)",
+    "date": "2026/06/09",
+    "pbTypeString": "現金",
+    "preAmtS": "17,226,000",
+    "aum": "580,559,762,466",
+    "totUnit": "18,560,790,000",
+    "diffUnit": "-41,500,000",
+    "nav": "31.28",
+    "basketUnit": "500,000",
+    "basketNav": "15,640,000",
+    "marketVal": "15,609,218",
+    "bm": "30,782",
+    "diffActAmtS": "",
+    "actAmtS": "",
+    "estTotUnitDate": "",
+    "estTotUnit": "",
+    "dataDate": "2026/05/29",
+    "benefiCount": "1658577",
+    "preDate": "1150608",
+    "preDateC": "2026/06/08",
+    "etfType": "01",
+    "currency": "新台幣"
+  },
+  "returnCode": "2000",
+  "success": true,
+  "returnMessage": "成功"
+}

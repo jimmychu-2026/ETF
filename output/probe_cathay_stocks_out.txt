@@ -1,0 +1,17 @@
+﻿GetStocksList {'FundCode': 'CN'} -> n=0 success=True
+GetStocksList {'FundCode': 'CN', 'Date': '2026/06/09'} -> n=0 success=True
+GetStocksList {'FundCode': 'CN', 'date': '2026/06/09'} -> n=0 success=True
+GetStocksList {'FundCode': 'CN', 'PCFDate': '2026/06/09'} -> n=0 success=True
+GetStocksList {'FundCode': 'CN', 'TradeDate': '2026/06/09'} -> n=0 success=True
+GetStocksList {'FundCode': 'CN', 'Lang': 'tw'} -> n=0 success=True
+GetStocksList {'fundCode': 'CN', 'date': '2026/06/09'} -> n=0 success=True
+GetETFDetailStockList {'FundCode': 'CN'} -> <class 'NoneType'> None
+GetETFDetailStockList {'FundCode': '00878'} -> <class 'NoneType'> None
+ETFDetail ERR {'ETFCode': '00878'}: HTTP Error 400: Bad Request
+ETFDetail ERR {'IndexCode': 'ECN'}: HTTP Error 400: Bad Request
+Download {'FundCode': 'CN'} len=0 head=''
+Download ERR {'ETFCode': '00878'}: HTTP Error 400: Bad Request
+Download {'FundCode': '00878'} len=0 head=''
+RAW FundCode=CN len=0 magic=b''
+RAW ERR ETFCode=00878: HTTP Error 400: Bad Request
+RAW FundCode=00878 len=0 magic=b''
