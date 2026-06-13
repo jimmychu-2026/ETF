@@ -1,0 +1,75 @@
+1. **時間維度的永久展期**：永續期貨不需手動換月（Calendar Roll），由系統自動滾動；ETF 投資人名義上持有現貨，實質上由投信經理人依據外生日程（Rebalancing Schedule）在底層**強制執行跨期成分股展期**。
+2. **價格錨定與偏離校正**：永續期貨利用「資金費率」強迫期貨價收斂至現貨價；ETF 則利用**參與券商（Authorized Participants, AP）**的「實物申購與買回（Creation/Redemption Loop）」機制，進行折溢價（Premium/Discount）套利，強迫市場交易價格收斂至基金淨值（NAV）。
+
+---
+
+### 7.2 跨商品定價轉換模型（The Transfer Pricing Model）
+
+為了建立兩者的數學橋接，我們定義以下參數：
+* $S_t$：$t$ 時刻底層一籃子成分股的真實理論現貨價格（Spot Index）。
+* $P_t$：$t$ 時刻 ETF 在次級市場的交易價格（Market Price），或永續期貨的契約價格。
+* $NAV_t$：$t$ 時刻 ETF 的每股資產淨值（Net Asset Value）。
+* $r$：無風險利率（Risk-free Rate）。
+* $q_t$：$t$ 時刻成分股發放的**自然實物股利所得率（54C Dividend Yield）**。
+* $\alpha_{ter}$：ETF 的**總費用率（TER / 經理費與保管費率）**，在期貨中映射為**持倉隱性遞延成本**。
+* $\delta_{roll}$：因外生再平衡引起的**市場衝擊與搶先交易損耗（Market Impact & Front-running Costs）**。
+
+#### 7.2.1 傳統遠期/期貨定價公式（作為對照標尺）
+標準自帶到期日 $T$ 的股權遠期契約，其理論價格 $F_t$ 遵循持有成本模型（Cost of Carry Model）：
+$$F_t = S_t \cdot e^{(r - q_t)(T - t)}$$
+
+#### 7.2.2 ETF 與永續期貨的合成定價方程
+由於永續契約與 ETF 皆無固定到期日（$T \to \infty$），其定價無法依賴特定時點的實物交割。因此，我們必須引入**連續時間微積分**與**摩擦修正因子**。$t$ 時刻該張「合成永續合約」的定價方程為：
+
+$$P_t = NAV_t \cdot (1 + \Phi_t)$$
+
+其中，$NAV_t$ 的動態漂移路徑（Drift Path）受到底層因子與制度摩擦的雙重清洗，滿足以下隨機微分方程（SDE）：
+
+$$d(NAV_t) = NAV_t \cdot \left[ (r - q_t - \alpha_{ter} - \delta_{roll})dt + \sigma_t dW_t \right]$$
+
+* $dW_t$：標準布朗運動（Brownian Motion），代表市場隨機波動。
+* $\Phi_t$：**市場基差擾動項（Basis Disturbance）**，即 ETF 的折溢價率。
+
+$$\Phi_t = \frac{P_t - NAV_t}{NAV_t}$$
+
+---
+
+### 7.3 實質資金費率（Effective Funding Rate）的內耗數學
+
+在加密或外匯永續期貨中，當期貨價大於現貨價（$P_t > S_t$），多方必須支付資金費率給空方。
+在 ETF 的微觀結構中，散戶作為「永久多方部位持有人」，每天都在被動支付一筆**「實質資金費率（Effective Funding Rate, $FR_t$）」**給金融商（投信與套利自營商）。
+
+我們將 ETF 的實質資金費率分解為三個核心內耗維度：
+
+$$FR_t = \alpha_{ter} + \delta_{roll} + G_t$$
+
+#### 1. 制度性遞延成本（$\alpha_{ter}$）
+即每日從淨值中直接扣除的經理費與保管費。在永續期貨的對偶概念中，這相當於**「合約展期遞延費（Deferred Fee）」**。
+
+#### 2. 強制轉倉摩擦成本（$\delta_{roll}$）
+此為最隱蔽的內耗。當富時或台灣指數公司公告季度換股名單時，全市場高頻交易者執行搶先交易（Front-running）。投信在限定視窗內執行**被動式強制轉倉（Forced Calendar Roll）**，引發嚴重的市場衝擊（Market Impact），公式如下：
+
+$$\delta_{roll} = \sum_{i \in \Omega_{change}} \left| \Delta w_i \right| \cdot \left( \lambda_i \cdot \text{Volume}_i + \text{Spread}_i \right)$$
+
+* $\Omega_{change}$：該季被汰換或新納入的成分股集合。
+* $\Delta w_i$：該成分股調整的權重絕對值。
+* $\lambda_i$：該股的**阿米胡德流動性非彈性係數（Amihud Illiquidity）**。
+* $\text{Spread}_i$：買賣價差。
+該項損耗不顯示在券商帳單，而是**直接造成 $NAV_t$ 的非線性下陷**。
+
+#### 3. 收益平準金龐氏缺口（$G_t$）
+特別針對高息組 ETF。當投信承諾之名目配息率（$D_t$）遠大於底層企業實際產出的股利所得（$C_t$）時，產生的遠期配息缺口：
+
+$$G_t = \max\left(0, \frac{D_t - C_t}{NAV_t}\right)$$
+
+若淨申購流速（Net Inflow）減緩，為了維持該合約的永續外觀，投信將被迫實質上「割裂本金」來發放利息，這在永續期貨中等同於**「多方頭寸的淨值自我清算」**。
+
+---
+
+### 7.4 結論：揭開「現貨存股」的量化真相
+
+透過本章的金融工程轉換模型，我們可以得出一個嚴密的計量結論：
+
+$$\text{次級市場買進現貨 ETF} \equiv \text{買進一張「名目槓桿為 1，但內含高特異風險 Beta 暴露的永續期貨」}$$
+
+投資人每天付出的代價，是高於傳統期貨換月成本的**實質資金費率 $FR_t$**。散戶以為自己在遠離衍生性商品的高風險地帶進行「穩健存股」，實質上，他們只是在一個**缺乏保證金追繳警告、將所有轉倉損耗與平倉割肉完全「黑箱化（會計平滑）」的永續滾動合成遠期合約**中，被動地接受金融商與高頻交易者的流動性抽血。
