@@ -160,6 +160,18 @@ Because ETF composition is disclosed at different dates, HHI should be treated a
 \Sigma_{HHI} = \operatorname{Cov}(HHI_{i,t}, HHI_{j,t})
 \]
 
+**Illustrative 6×6 covariance matrix of HHI (structure only):**
+
+|       | 0050 | 006208 | 0056 | 00878 | 00919 | 00929 |
+|:------|:-----|:-------|:-----|:------|:------|:------|
+| 0050  |       |        |      |       |       |       |
+| 006208|       |        |      |       |       |       |
+| 0056  |       |        |      |       |       |       |
+| 00878 |       |        |      |       |       |       |
+| 00919 |       |        |      |       |       |       |
+| 00929 |       |        |      |       |       |       |
+
+
 where rows and columns index ETFs, and each entry measures whether two ETFs tend to become more or less concentrated together over time. A high covariance between two ETFs implies that their concentration risk is not independent, so diversification at the level of ETF counts may still leave the portfolio exposed to synchronized concentration shifts.
 
 For the six Taiwan ETFs, this matrix is especially relevant because the products are governed by different rebalance calendars and distribution rules. In practice:
@@ -178,12 +190,18 @@ HHI = \sum_{i=1}^{n} w_i^2
 | ETF | Max single weight | HHI (empirical)* | Eff. N (=1/HHI) | Interpretation |
 |:----|:------------------|:-----------------|:----------------|:---------------|
 | 0050 / 006208 | **58.0%** (TSMC, 2330) | **0.3505** | 2.9 | Well above conventional diversification heuristics (HHI < 0.10) |
-| 0056 | **8.8%** | **0.0588** | 17.0 | Stock-level dispersion; factor and industry clustering remain |
+| 0056 | **8.8%** (MediaTek, 2454) | **0.0588** | 17.0 | Stock-level dispersion; factor and industry clustering remain |
 | 00878 | **10.6%** (Quanta, 2382) | **0.0460** | 21.7 | Moderate stock HHI; financial factor concentration |
-| 00919 | **13.1%** (FBND, 2881) | **0.0733** | 13.6 | Top-heavy financials; high turnover of high-yield names |
+| 00919 | **13.1%** (Financials, e.g. Fubon 2881 / Cathay 2882 depending on disclosure date) | **0.0733** | 13.6 | Top-heavy financials; high turnover of high-yield names |
 | 00929 | **13.4%** (UMC, 2303) | **0.0509** | 19.6 | Stock HHI moderate; **industry HHI → 1** (technology) |
 
-***Table source:** Appendix A. 0050/0056 from Yuanta PCF weights plus FinMind trading-date validation; 006208 proxied from 0050; 00878 from Cathay `cwapi` `GetIndexStockWeights` (FundCode=CN); 00919/00929 from Pocket.tw holdings API (ETF holdings mirror issuer PCF).* 
+***Table source:** Appendix A.  
+- 0050 / 0056: Yuanta PCF weights (validated with FinMind trading dates)  
+- 006208: Tracks the same FTSE Taiwan 50 index; proxied using 0050 weights  
+- 00878: Cathay `cwapi` GetIndexStockWeights (FundCode=CN)  
+- 00919 / 00929: Pocket.tw ETF holdings API (mirrors issuer PCF; equity constituents only, excluding cash/futures)  
+
+*Note: For 00919, the largest financial holding may alternate between Fubon Financial (2881) and Cathay Financial (2882) depending on the disclosure date.*
 
 When $w_{TSMC} > 0.60$, the squared-weight term alone is 0.36. MPT's idiosyncratic-risk elimination through breadth fails: the product behaves as a leveraged single-name proxy rather than a genuinely diversified basket.
 
