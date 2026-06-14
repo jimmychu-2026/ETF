@@ -21,7 +21,7 @@ Taiwan's retail investors commonly treat six dominant ETFs—0050, 006208, 0056,
 
 We develop a unified risk-budgeting framework combining **Forward Tenor Stack** measures, concentration risk (HHI and marginal risk contributions), factor exposures (FF3/FF5), tail dependence and CVaR, tracking error / market impact / opportunity cost, and dividend sustainability through equalization reserves. Using split-adjusted FinMind price data for 2018–2025, we estimate monthly, quarterly, and annual volatility patterns and document that 0050’s annual volatility is approximately 23.2%, comparable in magnitude to the annual-tenor volatility of the 1912–1921 silver benchmark used as a historical analogy. We also find evidence of calendar-risk amplification around rebalance and ex-dividend windows, particularly for 0050, 0056, and 00929.
 
-The empirical appendix reports high concentration for 0050 and 006208 (HHI ≈ 0.342; TSMC ≈ 57.2% weight), moderate stock-level concentration but meaningful factor or industry lock-in for the remaining products, and a nontrivial role for dividend-forward gaps and equalization reserves in high-yield ETFs. The results suggest that Taiwan’s six popular ETFs are not interchangeable passive baskets; they are **delegated, path-dependent risk-budgeting contracts** with month, quarter, and year tenors that investors do not control directly.
+The empirical appendix reports high concentration for 0050 and 006208 (HHI ≈ 0.3505; TSMC ≈ 57.2% weight), moderate stock-level concentration but meaningful factor or industry lock-in for the remaining products, and a nontrivial role for dividend-forward gaps and equalization reserves in high-yield ETFs. The results suggest that Taiwan’s six popular ETFs are not interchangeable passive baskets; they are **delegated, path-dependent risk-budgeting contracts** with month, quarter, and year tenors that investors do not control directly.
 
 **Keywords**: ETF; Taiwan; spot-wrapped forward; tenor risk; risk budgeting; dividend sustainability; income equalization; index rebalancing; portfolio concentration
 
@@ -152,6 +152,23 @@ Risk should be evaluated in layers; no single statistic suffices.
 
 ### 2.2 Concentration: HHI
 
+### 2.2.1 HHI covariance matrix across disclosure dates
+
+Because ETF composition is disclosed at different dates, HHI should be treated as a time-varying concentration state rather than a fixed scalar. Let $HHI_{i,t}$ denote the HHI of ETF $i$ at disclosure date $t$. Across a sequence of public snapshots, the co-movement of concentration can be summarized by the covariance matrix:
+
+\[
+\Sigma_{HHI} = \operatorname{Cov}(HHI_{i,t}, HHI_{j,t})
+\]
+
+where rows and columns index ETFs, and each entry measures whether two ETFs tend to become more or less concentrated together over time. A high covariance between two ETFs implies that their concentration risk is not independent, so diversification at the level of ETF counts may still leave the portfolio exposed to synchronized concentration shifts.
+
+For the six Taiwan ETFs, this matrix is especially relevant because the products are governed by different rebalance calendars and distribution rules. In practice:
+
+- **0050 / 006208** show the strongest and most stable concentration co-movement because both track the same FTSE Taiwan 50 index.
+- **0056** shares a partially similar high-dividend and cyclical risk structure, but its concentration path is less synchronized with 0050.
+- **00878**, **00919**, and **00929** exhibit distinct concentration dynamics because their factor screens and payout rules differ, even if all are marketed as diversified income products.
+
+This covariance perspective complements the cross-sectional HHI table: the table shows how concentrated each ETF is at a point in time, while $\Sigma_{HHI}$ shows whether concentration itself is moving together across products over disclosure dates.
 For portfolio weights $w_i$:
 
 \[
@@ -160,11 +177,11 @@ HHI = \sum_{i=1}^{n} w_i^2
 
 | ETF | Max single weight | HHI (empirical)* | Eff. N (=1/HHI) | Interpretation |
 |:----|:------------------|:-----------------|:----------------|:---------------|
-| 0050 / 006208 | **57.2%** (TSMC, 2330) | **0.342** | 2.9 | Well above conventional diversification heuristics (HHI < 0.10) |
-| 0056 | **9.3%** | **0.064** | 15.6 | Stock-level dispersion; factor and industry clustering remain |
-| 00878 | **10.5%** (Quanta, 2382) | **0.046** | 21.5 | Moderate stock HHI; financial factor concentration |
-| 00919 | **12.2%** (Cathay Fin., 2882) | **0.064** | 15.6 | Top-heavy financials; high turnover of high-yield names |
-| 00929 | **12.7%** (UMC, 2303) | **0.050** | 20.2 | Stock HHI moderate; **industry HHI → 1** (technology) |
+| 0050 / 006208 | **57.2%** (TSMC, 2330) | **0.3505** | 2.9 | Well above conventional diversification heuristics (HHI < 0.10) |
+| 0056 | **9.3%** | **0.0588** | 15.6 | Stock-level dispersion; factor and industry clustering remain |
+| 00878 | **10.5%** (Quanta, 2382) | **0.0460** | 21.5 | Moderate stock HHI; financial factor concentration |
+| 00919 | **12.2%** (Cathay Fin., 2882) | **0.0733** | 15.6 | Top-heavy financials; high turnover of high-yield names |
+| 00929 | **12.7%** (UMC, 2303) | **0.0509** | 20.2 | Stock HHI moderate; **industry HHI → 1** (technology) |
 
 ***Table source:** Appendix A. 0050/0056 from Yuanta PCF weights plus FinMind trading-date validation; 006208 proxied from 0050; 00878 from Cathay `cwapi` `GetIndexStockWeights` (FundCode=CN); 00919/00929 from Pocket.tw holdings API (ETF holdings mirror issuer PCF).* 
 
