@@ -75,6 +75,7 @@ def parse_yuanta_nuxt_weights(html: str) -> tuple[str, list[tuple[str, float, st
         code = mapping.get(code_v, code_v).strip().strip('"')
         raw_name = mapping.get(name_v, name_v).strip().strip('"')
         name = _clean_name(raw_name, code)
+        _debug_name_choice(code, raw_name, name, float(wt))
         rows.append((code, float(wt), name))
     return as_of, rows
 
