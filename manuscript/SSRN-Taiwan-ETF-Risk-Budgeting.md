@@ -177,11 +177,11 @@ HHI = \sum_{i=1}^{n} w_i^2
 
 | ETF | Max single weight | HHI (empirical)* | Eff. N (=1/HHI) | Interpretation |
 |:----|:------------------|:-----------------|:----------------|:---------------|
-| 0050 / 006208 | **57.2%** (TSMC, 2330) | **0.3505** | 2.9 | Well above conventional diversification heuristics (HHI < 0.10) |
-| 0056 | **9.3%** | **0.0588** | 15.6 | Stock-level dispersion; factor and industry clustering remain |
-| 00878 | **10.5%** (Quanta, 2382) | **0.0460** | 21.5 | Moderate stock HHI; financial factor concentration |
-| 00919 | **12.2%** (Cathay Fin., 2882) | **0.0733** | 15.6 | Top-heavy financials; high turnover of high-yield names |
-| 00929 | **12.7%** (UMC, 2303) | **0.0509** | 20.2 | Stock HHI moderate; **industry HHI → 1** (technology) |
+| 0050 / 006208 | **58.0%** (TSMC, 2330) | **0.3505** | 2.9 | Well above conventional diversification heuristics (HHI < 0.10) |
+| 0056 | **8.8%** | **0.3505** | 17.0 | Stock-level dispersion; factor and industry clustering remain |
+| 00878 | **10.6%** (Quanta, 2382) | **0.0588** | 21.7 | Moderate stock HHI; financial factor concentration |
+| 00919 | **13.1%** (FBND, 2881) | **0.0733** | 13.6 | Top-heavy financials; high turnover of high-yield names |
+| 00929 | **13.4%** (UMC, 2303) | **0.0509** | 19.6 | Stock HHI moderate; **industry HHI → 1** (technology) |
 
 ***Table source:** Appendix A. 0050/0056 from Yuanta PCF weights plus FinMind trading-date validation; 006208 proxied from 0050; 00878 from Cathay `cwapi` `GetIndexStockWeights` (FundCode=CN); 00919/00929 from Pocket.tw holdings API (ETF holdings mirror issuer PCF).* 
 
