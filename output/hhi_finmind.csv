@@ -1,7 +1,7 @@
 ﻿ticker,name,as_of_date,finmind_price_date,n_constituents,max_weight_id,max_weight_name,max_weight_pct,hhi,eff_n,weight_sum_pct,data_source,notes
 0050,Yuanta Taiwan Top 50,2026-06-12,2026-06-12,36,2330,台積電,57.95,0.3505,2.85,92.56,Yuanta PCF (NUXT weights),residual bucket 7.4%
 006208,Fubon Taiwan Top 50,2026-06-12,2026-06-12,36,2330,台積電,57.95,0.3505,2.85,92.56,Proxy: same FTSE Taiwan 50 as 0050,residual bucket 7.4%
-0056,Yuanta Taiwan Dividend Plus,2026-06-12,2026-06-12,40,kt,kp,8.82,0.0588,17.01,83.65,Yuanta PCF (NUXT weights),residual bucket 16.3%
+0056,Yuanta Taiwan Dividend Plus,2026-06-12,2026-06-12,40,2454,聯發科,8.82,0.0588,17.01,83.65,Yuanta PCF (NUXT weights),residual bucket 16.3%
 00878,Cathay MSCI Taiwan ESG Sustainability High Dividend Yield,2026-06-12,2026-06-12,30,2382,廣達,10.56,0.0460,21.73,96.74,"Cathay cwapi GetIndexStockWeights (FundCode=CN, PCF posting date in payload)",residual bucket 3.3%
 00919,Capital Taiwan Select High Dividend,2026-06-12,2026-06-12,40,2881,富邦金,13.10,0.0733,13.64,97.28,"Pocket.tw ETF holdings API (DtNo 59449513, M722; mirrors issuer PCF)",residual bucket 2.7%
 00929,Fuh Hwa Taiwan Technology Dividend Highlight,2026-06-12,2026-06-12,50,2303,聯電,13.40,0.0509,19.64,98.74,"Pocket.tw ETF holdings API (DtNo 59449513, M722; mirrors issuer PCF)",residual bucket 1.3%
