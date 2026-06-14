@@ -178,8 +178,8 @@ HHI = \sum_{i=1}^{n} w_i^2
 | ETF | Max single weight | HHI (empirical)* | Eff. N (=1/HHI) | Interpretation |
 |:----|:------------------|:-----------------|:----------------|:---------------|
 | 0050 / 006208 | **58.0%** (TSMC, 2330) | **0.3505** | 2.9 | Well above conventional diversification heuristics (HHI < 0.10) |
-| 0056 | **8.8%** | **0.3505** | 17.0 | Stock-level dispersion; factor and industry clustering remain |
-| 00878 | **10.6%** (Quanta, 2382) | **0.0588** | 21.7 | Moderate stock HHI; financial factor concentration |
+| 0056 | **8.8%** | **0.0588** | 17.0 | Stock-level dispersion; factor and industry clustering remain |
+| 00878 | **10.6%** (Quanta, 2382) | **0.0460** | 21.7 | Moderate stock HHI; financial factor concentration |
 | 00919 | **13.1%** (FBND, 2881) | **0.0733** | 13.6 | Top-heavy financials; high turnover of high-yield names |
 | 00929 | **13.4%** (UMC, 2303) | **0.0509** | 19.6 | Stock HHI moderate; **industry HHI → 1** (technology) |
 
