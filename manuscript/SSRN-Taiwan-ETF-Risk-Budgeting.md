@@ -225,21 +225,88 @@ For **00929**, technology exposure is effectively complete at the industry level
 
 ### 2.4 CAPM and factor models
 
+Factor stripping, rather than stock-picking alpha, is the relevant interpretation of Taiwan ETF returns. High-dividend screening rules mechanically tilt toward value (HML) and cyclical sectors. The key question is whether any $\alpha$ survives after controlling for standard risk factors.
+
+#### 2.4.1 Fama-French three-factor (FF3) specification
+
+The baseline regression for each ETF $p$ over sample months $t = 1, \ldots, T$:
+
 \[
-R_{p,t} - R_{f,t} = \alpha_p + \beta_{MKT}(R_{M,t}-R_{f,t}) + s_p SMB_t + h_p HML_t + \epsilon_{p,t}
+R_{p,t} - R_{f,t} = \alpha_p + \beta_{MKT}(R_{M,t}-R_{f,t}) + s_p \, SMB_t + h_p \, HML_t + \epsilon_{p,t}
 \]
 
-**Expected sign pattern (hypotheses for future regression):**
+where $R_{f,t}$ is the one-month Taiwan government bill rate (or Central Bank overnight rate), $R_{M,t}$ is the TAIEX total-return index, $SMB_t$ is the monthly return spread of small-minus-big market-cap portfolios, and $HML_t$ is the high-minus-low book-to-market portfolios (all constructed on Taiwan Stock Exchange constituents unless an official Taiwan FF factor series is available).
 
-| ETF | β_MKT | SMB | HML | Interpretation |
-|:----|:------|:----|:----|:---------------|
-| 0050 / 006208 | ≈1 | Low | Low | Market proxy; TSMC idiosyncrasy embedded in market exposure |
+Standard errors are Newey-West heteroscedasticity- and autocorrelation-consistent (HAC) with lag truncation $\ell = 3$ to account for monthly return autocorrelation.
+
+**Null hypothesis (H2c):** $H_0: \alpha_p = 0$ for all six ETFs.
+
+**Expected sign pattern:**
+
+| ETF | $\beta_{MKT}$ | $s_p$ (SMB) | $h_p$ (HML) | Interpretation |
+|:----|:------------|:------------|:------------|:---------------|
+| 0050 / 006208 | ≈ 1 | Low/− | Low | Market proxy; TSMC idiosyncrasy embedded in $\beta_{MKT}$ |
 | 0056 | + | Mid | **+** | Dividend screen corresponds to value exposure |
 | 00878 | + | Low | Mid | ESG plus financial-sector channel |
 | 00919 | + | Mid | **+** | High-yield cyclicals (shipping, mature semis) |
 | 00929 | + | **+** | Low/Mid | Technology SMB lock-in |
 
-Factor stripping, rather than stock-picking alpha, is the relevant interpretation. High-dividend rules mechanically tilt toward HML and cyclical sectors. Rolling 36-month FF regressions with Newey-West errors can test whether $\alpha$ is statistically indistinguishable from zero.
+#### 2.4.2 Fama-French five-factor (FF5) extension
+
+To capture profitability and investment effects, FF5 augments the three-factor model with two additional factors (Fama & French, 2015):
+
+\[
+R_{p,t} - R_{f,t} = \alpha_p + \beta_{MKT}(R_{M,t}-R_{f,t}) + s_p \, SMB_t + h_p \, HML_t + r_p \, RMW_t + c_p \, CMA_t + \epsilon_{p,t}
+\]
+
+where $RMW_t$ is robust-minus-weak operating profitability (penalizes low-quality dividend payers) and $CMA_t$ is conservative-minus-aggressive investment (rewards low-capex stable payers).
+
+**Incremental hypotheses from FF5:**
+
+| ETF | $r_p$ (RMW) | $c_p$ (CMA) | Additional interpretation |
+|:----|:------------|:------------|:--------------------------|
+| 0050 / 006208 | Neutral | Neutral | Technology capex cycle limits CMA signal |
+| 0056 | Mid/+ | + | Mature hardware: moderate profitability; conservative capex |
+| 00878 | + | Neutral | Financial dividend quality should show positive RMW |
+| 00919 | **Low/−** | **−** | Shipping capex cycles; low-quality payout risk |
+| 00929 | Neutral | − | Technology growth capex reduces CMA |
+
+When $r_p < 0$ (weak profitability) and $h_p > 0$ (value tilt) co-occur—as expected for 00919—FF5 identifies a "cheap but not profitable" factor combination that historically underperforms in regime shifts.
+
+#### 2.4.3 Taiwan factor data and estimation notes
+
+Official Fama-French factor portfolios for the Taiwan Stock Exchange are not published in the standard Kenneth French data library. Three practical approaches exist:
+
+1. **Self-constructed factors**: Sort TWSE constituents monthly by size and book-to-market (B/M) at each June rebalance, following Fama & French (1993). Profitability (RMW) and investment (CMA) sorts require Compustat-equivalent annual financial data for TWSE firms.
+2. **Asia-Pacific regional factors**: The French data library provides Asia-Pacific ex-Japan factor portfolios, which include Taiwan as a component. These are a reasonable approximation but aggregate regional variation.
+3. **TEJ or Bloomberg Taiwan factors**: Taiwan Economic Journal (TEJ) provides pre-constructed B/M and profitability quintile portfolios for TWSE; these are the preferred source for full-sample inference.
+
+Regardless of source, regressions should use **split-adjusted FinMind price returns** for the six ETFs (2018-01 to 2025-12) aligned to the same monthly calendar as the factor data. Rolling 36-month windows allow detection of time-varying factor loads, particularly relevant around COVID-19 (2020) and the 2022 rate-hike cycle.
+
+**Table 3. Fama-French factor regression — structural preview (sign expectations)**
+
+| ETF | $\alpha_p$ | $\beta_{MKT}$ | $s_p$ | $h_p$ | $r_p$ | $c_p$ | Adj. $R^2$ |
+|:----|:----------:|:-------------:|:-----:|:-----:|:-----:|:-----:|:----------:|
+| 0050 | 0 | ≈ 1 | 0/− | 0 | 0 | 0 | High |
+| 006208 | 0 | ≈ 1 | 0/− | 0 | 0 | 0 | High |
+| 0056 | 0 | + | 0/+ | **+** | + | + | Mod-high |
+| 00878 | 0 | + | 0 | + | + | 0 | Mod-high |
+| 00919 | 0 | + | + | **+** | **−** | − | Mod |
+| 00929 | 0 | + | **+** | 0 | 0 | − | Mod-high |
+
+*Cells show predicted sign direction; 0 indicates near-zero expectation. Full empirical estimates pending factor data construction (see Appendix B and replication agenda §7.2).*
+
+#### 2.4.4 Spot-wrapped-forward interpretation of factor exposures
+
+The factor regression results are meaningful precisely because these ETFs are spot-wrapped forwards. Factor loads are not static portfolio decisions: they are mechanically refreshed by rule-based index rebalancing. Each annual yield-screen (00919) or MSCI semi-annual rebalance (00878) rotates holdings in a way that **endogenously adjusts factor exposures** without investor consent.
+
+This creates a specific risk pattern invisible to a one-time snapshot regression:
+
+- **00919's HML load may spike** in high-yield euphoria years (when high-yielders become expensive, then revert) and collapse when yield screens rotate out of financials.
+- **0050's $\beta_{MKT}$** is structurally unstable if TSMC's weight exceeds 60%, because the ETF ceases to track the market and starts tracking a single name with leveraged factor loading.
+- **00929's SMB load** will vary with the technology-cycle phase: in capex downturns, small-cap tech names see disproportionate drawdowns, amplifying SMB contribution.
+
+Rolling FF3/FF5 regressions (36-month window, quarterly re-estimation) are therefore essential to detect regime shifts in factor exposure, not merely cross-sectional factor levels.
 
 ### 2.5 Tail risk
 
@@ -432,13 +499,13 @@ Future work should extend the analysis with higher-frequency event windows, roll
 - **v2.3 update:** Forward tenor volatilities plus **H6 pilot** (0050 rebalance vol ratio 1.13; 0056 ex-div month 1.80; 00929 ex-div month 1.42). True $G_t$ requires issuer equalization-share disclosure.
 - **v2.3 addition:** The perpetual analogy is conceptual, not a legal or exact valuation identity.
 - **v2.2:** Appendix A empirical HHI from public PCF pipelines.
-- MRC, FF, and CVaR remain structural or illustrative pending full-sample econometrics.
+- **v2.4 addition:** §2.4 expanded with FF3/FF5 formal specification (§2.4.1–2.4.4), Table 3 structural preview, and Appendix B replication code. MRC, FF empirical estimates, and CVaR remain pending full-sample econometrics with Taiwan FF factor data.
 
 ### 7.2 Replication agenda
 
 1. Rebalance / ex-div event windows for $\sigma_q$, $\sigma_m$ (H6a–b).
 2. Monthly HHI and MRC from Ledoit-Wolf $\Sigma$.
-3. FF3/FF5 regressions with Newey-West errors (2018–2025).
+3. **FF3/FF5 regressions** (Table 3, §2.4): Newey-West HAC errors ($\ell=3$), rolling 36-month windows, 2018-01–2025-12. Requires Taiwan FF factor construction or Asia-Pacific regional factors (see Appendix B).
 4. CVaR and crash-month conditional returns.
 5. Panel on $G_t$, $EQ\_ratio$, flows, and premium/discount (H5–H6d).
 6. Re-run: `py code/compute_forward_horizon_risk.py` and `py code/parse_silk_silver_1912_1921.py`.
@@ -490,6 +557,97 @@ print(pivot.cov())
 - **00878:** Cathay cwapi GetIndexStockWeights (FundCode=CN, PCF posting date in payload). residual bucket 3.3%
 - **00919:** Pocket.tw ETF holdings API (DtNo 59449513, M722; mirrors issuer PCF). residual bucket 2.7%
 - **00929:** Pocket.tw ETF holdings API (DtNo 59449513, M722; mirrors issuer PCF). residual bucket 1.3%
+
+---
+
+# Appendix B — Fama-French Regression Framework and Replication Code
+
+This appendix provides the econometric specification, Taiwan factor data notes, and Python replication code for the FF3/FF5 regressions described in §2.4 and referenced as Table 3.
+
+## B.1 Factor construction for Taiwan
+
+**Option 1 — Self-constructed TWSE factors (preferred for academic submissions)**
+
+Replicate Fama & French (1993) independently-sorted 2×3 portfolios on the Taiwan Stock Exchange:
+
+1. At each June end, rank all ordinary TWSE stocks by market cap (size). Top 50% = Big (B); bottom 50% = Small (S).
+2. Rank the same universe by book-to-market ratio (B/M) at the preceding fiscal-year end. Bottom 30% = Growth (L); middle 40% = Neutral (M); top 30% = Value (H).
+3. Form six value-weighted portfolios: S/L, S/M, S/H, B/L, B/M, B/H.
+4. $SMB_t = \frac{1}{3}(S/L + S/M + S/H) - \frac{1}{3}(B/L + B/M + B/H)$
+5. $HML_t = \frac{1}{2}(S/H + B/H) - \frac{1}{2}(S/L + B/L)$
+
+For FF5, add:
+6. $RMW_t$: sort by operating profitability (OP = operating income ÷ book equity). Robust = top 30%; Weak = bottom 30%.
+7. $CMA_t$: sort by asset growth. Conservative = bottom 30%; Aggressive = top 30%.
+
+Financial data source: TEJ (Taiwan Economic Journal) or TWSE OpenAPI (annual reports, balance sheets).
+
+**Option 2 — Asia-Pacific regional factors (quick approximation)**
+
+The Kenneth French data library provides Asia-Pacific ex-Japan monthly factor returns, which include Taiwan as a constituent. Download at: <https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html>
+
+These are adequate for sign-direction testing but may understate Taiwan-specific factor spreads.
+
+**Risk-free rate:** 91-day Central Bank of the Republic of China (Taiwan) Treasury bills (`cbrate`), or the overnight interbank rate (TAIBOR O/N) from TEJ/FinMind. Monthly compounding.
+
+## B.2 Regression estimation
+
+```python
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+
+# Load ETF monthly returns and FF factors (pre-aligned, same calendar)
+etf_ret = pd.read_csv("output/etf_monthly_returns.csv", index_col="date", parse_dates=True)
+factors = pd.read_csv("output/ff_factors_tw.csv", index_col="date", parse_dates=True)
+# Columns: MKT_RF, SMB, HML, RMW, CMA, RF
+
+tickers = ["0050", "006208", "0056", "00878", "00919", "00929"]
+results = {}
+
+for ticker in tickers:
+    y = etf_ret[ticker] - factors["RF"]          # excess return
+    X = factors[["MKT_RF", "SMB", "HML", "RMW", "CMA"]]
+    X = sm.add_constant(X)
+    model = sm.OLS(y, X).fit(cov_type="HAC", cov_kwds={"maxlags": 3})
+    results[ticker] = model
+
+    print(f"\n=== {ticker} ===")
+    print(model.summary())
+```
+
+## B.3 Rolling 36-month window regressions
+
+```python
+from statsmodels.regression.rolling import RollingOLS
+
+for ticker in tickers:
+    y = etf_ret[ticker] - factors["RF"]
+    X = factors[["MKT_RF", "SMB", "HML"]]        # FF3; swap in RMW, CMA for FF5
+    X = sm.add_constant(X)
+    rolling_model = RollingOLS(y, X, window=36).fit(params_only=False)
+
+    params = rolling_model.params.dropna()
+    params.columns = ["alpha", "beta_MKT", "s_SMB", "h_HML"]
+    params.to_csv(f"output/rolling_ff3_{ticker}.csv")
+```
+
+## B.4 Table 3 output template
+
+Once factor data are available, populate the following table with point estimates (standard errors in parentheses; *** p<0.01, ** p<0.05, * p<0.10):
+
+**Table 3. Fama-French factor regression results (FF5, 2018-01–2025-12, Newey-West HAC $\ell=3$)**
+
+| ETF | $\hat\alpha$ | $\hat\beta_{MKT}$ | $\hat s_p$ | $\hat h_p$ | $\hat r_p$ | $\hat c_p$ | Adj. $R^2$ | $T$ |
+|:----|:------------:|:-----------------:|:----------:|:----------:|:----------:|:----------:|:----------:|:---:|
+| 0050 | — | — | — | — | — | — | — | — |
+| 006208 | — | — | — | — | — | — | — | — |
+| 0056 | — | — | — | — | — | — | — | — |
+| 00878 | — | — | — | — | — | — | — | — |
+| 00919 | — | — | — | — | — | — | — | — |
+| 00929 | — | — | — | — | — | — | — | — |
+
+*Dashes indicate pending empirical estimation. Sign expectations are documented in §2.4 and Table 3 (structural preview). Monthly observations 2018-01–2025-12 ($T \approx 96$).*
 
 ---
 
