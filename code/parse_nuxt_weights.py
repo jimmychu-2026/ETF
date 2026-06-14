@@ -2,13 +2,39 @@ import re
 from pathlib import Path
 
 
+def _clean_name(name: str, stock_id: str = "") -> str:
+    """Normalize noisy Yuanta NUXT name tokens into readable stock names.
+
+    The PCF payload sometimes exposes placeholder-like tokens or short aliases
+    (e.g. `ku (kE)`, `kp (kt)`) instead of the human-readable company name. We
+    keep the original token when it already looks like a real name, but for
+    suspicious short/garbled tokens we fall back to the stock id so downstream
+    outputs stay interpretable.
+    """
+    name = name.strip().strip('"')
+    if not name:
+        return stock_id or name
+
+    # If the token looks like a normal Chinese or alphanumeric company name,
+    # keep it as-is.
+    if re.search(r"[\u4e00-\u9fff]", name) or len(name) >= 6:
+        return name
+
+    # Yuanta payload can occasionally emit short alias tokens like `ku (kE)`.
+    # Treat them as noise unless they clearly resemble a true listed name.
+    if re.fullmatch(r"[A-Za-z0-9&\-\.\s]{1,5}", name):
+        return stock_id or name
+
+    return stock_id or name
+
+
 def parse_yuanta_nuxt_weights(html: str) -> tuple[str, list[tuple[str, float, str]]]:
     """Return (posting_date, [(stock_id, weight_pct, stock_name_var)]) from Yuanta NUXT."""
     start = html.find("window.__NUXT__=")
     if start < 0:
         return "", []
     start += len("window.__NUXT__=")
-    end = html.find("));</script>", start)
+    end = html.find(");</script>", start)
     nuxt = html[start:end] if end > start else html[start:]
 
     date_m = re.search(r"Posting Date[：:]\s*(\d{4}-\d{2}-\d{2})", html)
@@ -32,7 +58,8 @@ def parse_yuanta_nuxt_weights(html: str) -> tuple[str, list[tuple[str, float, st
     rows: list[tuple[str, float, str]] = []
     for code_v, _ym, name_v, _en, wt, _qty in blocks:
         code = mapping.get(code_v, code_v).strip().strip('"')
-        name = mapping.get(name_v, name_v).strip().strip('"')
+        raw_name = mapping.get(name_v, name_v).strip().strip('"')
+        name = _clean_name(raw_name, code)
         rows.append((code, float(wt), name))
     return as_of, rows
 
@@ -59,7 +86,7 @@ def _split_js_args(s: str) -> list[str]:
             continue
         if ch in "{[(":
             depth += 1
-        elif ch in "}]":
+        elif ch in "}])":
             depth = max(0, depth - 1)
         if ch == "," and depth == 0:
             token = "".join(cur).strip()
