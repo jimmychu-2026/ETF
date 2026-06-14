@@ -446,25 +446,50 @@ Future work should extend the analysis with higher-frequency event windows, roll
 
 ---
 
-## Appendix A — Empirical HHI from FinMind and Public PCF Weights
+# Appendix A — Empirical HHI (FinMind + PCF / Index Weights)
 
-**Data pipeline:** Python script `code/compute_hhi_finmind.py` (FinMind API `TaiwanStockPrice` / `TaiwanStockInfo`; Yuanta PCF NUXT parser; Cathay cwapi; Pocket.tw holdings API).  
-**Price validation date (FinMind):** 2026-06-08. **PCF posting dates:** Yuanta 2026-06-08; Cathay 2026-06-09; Pocket 2026-06-08.
+**FinMind:** `TaiwanStockPrice` trading date & `TaiwanStockInfo` names  
+**Generated:** 2026-06-14 17:48  
 
-**Table A1. Herfindahl-Hirschman Index — six popular Taiwan ETFs**
+**Table A1. Herfindahl-Hirschman Index across six popular Taiwan ETFs**
 
-| ETF | N (reported) | Max weight (name / ID) | Max wt (%) | HHI | Eff. N | Wt sum (%) |
-|:----|-------------:|:-----------------------|-----------:|----:|-------:|-----------:|
-| **0050** | 36 | TSMC (2330) | 57.2 | **0.3422** | 2.9 | 92.9 |
-| **006208** | 36 | TSMC (2330) | 57.2 | **0.3422** | 2.9 | 92.9 |
-| **0056** | 39 | top name (9.3%) | 9.3 | **0.0643** | 15.6 | 81.9 |
-| **00878** | 30 | Quanta (2382) | 10.5 | **0.0464** | 21.5 | 96.3 |
-| **00919** | 58 | Cathay Fin. (2882) | 12.2 | **0.0640** | 15.6 | 98.1 |
-| **00929** | 50 | UMC (2303) | 12.7 | **0.0496** | 20.2 | 98.5 |
+| ETF | N (reported) | Max weight | Max wt (%) | HHI | Eff. N | Wt sum (%) |
+|:----|-------------:|:-----------|-----------:|----:|-------:|-----------:|
+| **0050** | 36 | 台積電 (2330) | 58.0 | **0.3505** | 2.9 | 92.6 |
+| **006208** | 36 | 台積電 (2330) | 58.0 | **0.3505** | 2.9 | 92.6 |
+| **0056** | 40 | 聯發科 (2454) | 8.8 | **0.0588** | 17.0 | 83.7 |
+| **00878** | 30 | 廣達 (2382) | 10.6 | **0.0460** | 21.7 | 96.7 |
+| **00919** | 40 | 富邦金 (2881) | 13.1 | **0.0733** | 13.6 | 97.3 |
+| **00929** | 50 | 聯電 (2303) | 13.4 | **0.0509** | 19.6 | 98.7 |
 
-**Method.** $HHI = \sum_i w_i^2$ with $w_i$ in decimal form. For 0050 and 0056, weights are taken from Yuanta's public PCF pages (embedded NUXT payload). FinMind confirms the latest Taiwan trading session for pipeline validation. 006208 is proxied from 0050. 00878 uses Cathay `cwapi` `GetIndexStockWeights` (FundCode=CN). 00919/00929 use Pocket.tw ETF holdings API, which mirrors issuer PCF constituent weights (equity rows only; cash, margin, and futures excluded).
+**Method.** $HHI = \sum_i w_i^2$ where $w_i$ are portfolio weights (%/100). For Yuanta ETFs (0050, 0056), weights are extracted from public PCF pages (NUXT payload). FinMind supplies the latest Taiwan trading session (`TaiwanStockPrice`, date above) for pipeline validation. 006208 tracks the same index as 0050 (FTSE Taiwan 50) and uses 0050 weights. 00878 uses Cathay `cwapi` `GetIndexStockWeights` (FundCode=CN). 00919/00929 use Pocket.tw ETF holdings API (DtNo 59449513, MajorTable M722), which mirrors issuer PCF constituent weights (equity rows only; cash/margin/futures excluded).
 
-**Replication.** Re-run: `py code/compute_hhi_finmind.py` → outputs `output/hhi_finmind.csv` and `output/appendix-a-hhi-finmind.md`.
+**Simple replication code**
+
+```python
+import pandas as pd
+
+df = pd.read_csv("output/hhi_finmind.csv")
+print(df[["ticker", "as_of_date", "hhi", "eff_n", "max_weight_name"]])
+```
+
+**Covariance matrix example**
+
+```python
+import pandas as pd
+
+df = pd.read_csv("output/hhi_finmind.csv")
+pivot = df.pivot(index="as_of_date", columns="ticker", values="hhi")
+print(pivot.cov())
+
+**Data sources by row**
+
+- **0050:** Yuanta PCF (NUXT weights). residual bucket 7.4%
+- **006208:** Proxy: same FTSE Taiwan 50 as 0050. residual bucket 7.4%
+- **0056:** Yuanta PCF (NUXT weights). residual bucket 16.3%
+- **00878:** Cathay cwapi GetIndexStockWeights (FundCode=CN, PCF posting date in payload). residual bucket 3.3%
+- **00919:** Pocket.tw ETF holdings API (DtNo 59449513, M722; mirrors issuer PCF). residual bucket 2.7%
+- **00929:** Pocket.tw ETF holdings API (DtNo 59449513, M722; mirrors issuer PCF). residual bucket 1.3%
 
 ---
 
