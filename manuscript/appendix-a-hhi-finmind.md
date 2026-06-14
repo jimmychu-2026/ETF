@@ -27,12 +27,15 @@ print(df[["ticker", "as_of_date", "hhi", "eff_n", "max_weight_name"]])
 
 **Covariance matrix example**
 
+The HHI covariance matrix summarizes whether ETF concentration levels move together across disclosure dates. A positive covariance indicates that two ETFs tend to become more concentrated at the same time; a low or negative covariance indicates more independent concentration paths.
+
 ```python
 import pandas as pd
 
 df = pd.read_csv("output/hhi_finmind.csv")
-pivot = df.pivot(index="as_of_date", columns="ticker", values="hhi")
+pivot = df.pivot_table(index="as_of_date", columns="ticker", values="hhi", aggfunc="mean")
 print(pivot.cov())
+```
 
 **Data sources by row**
 
