@@ -23,7 +23,7 @@ We develop a unified risk-budgeting framework combining **Forward Tenor Stack** 
 
 The empirical appendix reports high concentration for 0050 and 006208 (HHI ≈ 0.342; TSMC ≈ 57.2% weight), moderate stock-level concentration but meaningful factor or industry lock-in for the remaining products, and a nontrivial role for dividend-forward gaps and equalization reserves in high-yield ETFs. The results suggest that Taiwan’s six popular ETFs are not interchangeable passive baskets; they are **delegated, path-dependent risk-budgeting contracts** with month, quarter, and year tenors that investors do not control directly.
 
-**Keywords**: ETF; Taiwan; spot-wrapped forward; tenor risk; risk budgeting; dividend sustainability; income equalization; index rebalancing
+**Keywords**: ETF; Taiwan; spot-wrapped forward; tenor risk; risk budgeting; dividend sustainability; income equalization; index rebalancing; portfolio concentration
 
 
 **JEL Classification:** G11, G12, G14, G23
