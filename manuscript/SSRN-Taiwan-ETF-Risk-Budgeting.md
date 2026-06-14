@@ -154,12 +154,6 @@ Risk should be evaluated in layers; no single statistic suffices.
 
 ### 2.2.1 HHI covariance matrix across disclosure dates
 
-Because ETF composition is disclosed at different dates, HHI should be treated as a time-varying concentration state rather than a fixed scalar. Let $HHI_{i,t}$ denote the HHI of ETF $i$ at disclosure date $t$. Across a sequence of public snapshots, the co-movement of concentration can be summarized by the covariance matrix:
-
-\[
-\Sigma_{HHI} = \operatorname{Cov}(HHI_{i,t}, HHI_{j,t})
-\]
-
 **Illustrative 6×6 covariance matrix of HHI (structure only):**
 
 |       | 0050 | 006208 | 0056 | 00878 | 00919 | 00929 |
@@ -171,6 +165,11 @@ Because ETF composition is disclosed at different dates, HHI should be treated a
 | 00919 |       |        |      |       |       |       |
 | 00929 |       |        |      |       |       |       |
 
+Because ETF composition is disclosed at different dates, HHI should be treated as a time-varying concentration state rather than a fixed scalar. Let $HHI_{i,t}$ denote the HHI of ETF $i$ at disclosure date $t$. Across a sequence of public snapshots, the co-movement of concentration can be summarized by the covariance matrix:
+
+\[
+\Sigma_{HHI} = \operatorname{Cov}(HHI_{i,t}, HHI_{j,t})
+\]
 
 where rows and columns index ETFs, and each entry measures whether two ETFs tend to become more or less concentrated together over time. A high covariance between two ETFs implies that their concentration risk is not independent, so diversification at the level of ETF counts may still leave the portfolio exposed to synchronized concentration shifts.
 
@@ -481,6 +480,7 @@ import pandas as pd
 df = pd.read_csv("output/hhi_finmind.csv")
 pivot = df.pivot(index="as_of_date", columns="ticker", values="hhi")
 print(pivot.cov())
+```
 
 **Data sources by row**
 
