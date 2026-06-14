@@ -18,7 +18,6 @@ from parse_nuxt_weights import hhi_from_weight_pcts, parse_yuanta_nuxt_weights
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "output"
 FINMIND_BASE = "https://api.finmindtrade.com/api/v4/data"
-SHORT_TOKEN_NAMES = {"kp", "kt", "ku", "kE", "ke", "kT", "KP", "KT", "KU"}
 
 SSL_CTX = ssl.create_default_context()
 SSL_CTX.check_hostname = False
@@ -61,6 +60,8 @@ ETFS = {
     },
 }
 
+SHORT_TOKEN_NAMES = {"kp", "kt", "ku", "kE", "ke", "kT", "KP", "KT", "KU"}
+
 
 @dataclass
 class HHIResult:
@@ -90,18 +91,6 @@ def fetch_url(url: str, timeout: int = 45) -> str:
     with urllib.request.urlopen(req, context=SSL_CTX, timeout=timeout) as resp:
         return resp.read().decode("utf-8", "replace")
 
-
-def _fallback_name(stock_id: str, raw_name: str, names: dict[str, str]) -> str:
-    raw = (raw_name or "").strip().strip('"')
-    if not raw:
-        return names.get(stock_id, stock_id)
-    if raw in SHORT_TOKEN_NAMES:
-        return names.get(stock_id, stock_id)
-    if re.fullmatch(r"[A-Za-z]{1,3}", raw):
-        return names.get(stock_id, stock_id)
-    if re.fullmatch(r"[A-Za-z0-9&\-\.\s]{1,5}", raw) and not re.search(r"[\u4e00-\u9fff]", raw):
-        return names.get(stock_id, stock_id)
-    return names.get(stock_id, raw)
 
 def finmind_get(dataset: str, **params: str) -> list[dict]:
     q = {"dataset": dataset, **params}
@@ -222,17 +211,29 @@ def load_weights(ticker: str, meta: dict) -> tuple[str, list[tuple[str, float, s
     raise RuntimeError(f"No weights for {ticker}")
 
 
+def _fallback_name(stock_id: str, raw_name: str, names: dict[str, str]) -> str:
+    raw = (raw_name or "").strip().strip('"')
+    if not raw:
+        return names.get(stock_id, stock_id)
+    if raw in SHORT_TOKEN_NAMES:
+        return names.get(stock_id, stock_id)
+    if re.fullmatch(r"[A-Za-z]{1,3}", raw):
+        return names.get(stock_id, stock_id)
+    if re.fullmatch(r"[A-Za-z0-9&\-\.\s]{1,5}", raw) and not re.search(r"[\u4e00-\u9fff]", raw):
+        return names.get(stock_id, stock_id)
+    return names.get(stock_id, raw)
+
+
 def compute_one(ticker: str, meta: dict, price_date: str, names: dict[str, str]) -> HHIResult:
     as_of, rows, src = load_weights(ticker, meta)
     stats = hhi_from_weight_pcts(rows)
+
     top_id = stats["top_id"]
-    top_name = names.get(top_id, stats.get("top_name", top_id))
     raw_top_name = stats.get("top_name", top_id)
     top_name = _fallback_name(top_id, raw_top_name, names)
+
     if stats["top_pct"] > 50 and ticker in ("0050", "006208"):
         top_id, top_name = "2330", names.get("2330", "Taiwan Semiconductor")
-    elif top_id.startswith(("T", "c")) or len(top_id) < 4:
-        top_name = rows[0][2] if rows else top_id
 
     notes = []
     if stats["residual_pct"] > 0.5:
