@@ -1,6 +1,7 @@
 import re
 from pathlib import Path
 
+DEBUG_NAMES = False
 
 def _clean_name(name: str, stock_id: str = "") -> str:
     """Normalize noisy Yuanta NUXT name tokens into readable stock names.
@@ -14,6 +15,11 @@ def _clean_name(name: str, stock_id: str = "") -> str:
     name = name.strip().strip('"')
     if not name:
         return stock_id or name
+    if re.search(r"[\u4e00-\u9fff]", name) or len(name) >= 6:
+        return name
+    if re.fullmatch(r"[A-Za-z0-9&\-\.\s]{1,5}", name):
+        return stock_id or name
+    return stock_id or name
 
     # If the token looks like a normal Chinese or alphanumeric company name,
     # keep it as-is.
@@ -26,6 +32,15 @@ def _clean_name(name: str, stock_id: str = "") -> str:
         return stock_id or name
 
     return stock_id or name
+
+
+def _debug_name_choice(stock_id: str, raw_name: str, cleaned_name: str, weight: float) -> None:
+    if not DEBUG_NAMES:
+        return
+    if raw_name != cleaned_name:
+        print(
+            f"[YUANTA-NAME] id={stock_id} raw={raw_name!r} clean={cleaned_name!r} wt={weight:.2f}"
+        )
 
 
 def parse_yuanta_nuxt_weights(html: str) -> tuple[str, list[tuple[str, float, str]]]:
