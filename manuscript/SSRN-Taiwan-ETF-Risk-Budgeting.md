@@ -1,6 +1,6 @@
 # Risk Budgeting Curves You Cannot Turn Off: A Unified Framework for Taiwan's Six Most Popular ETFs
 
-**SSRN Working Paper v2.2 — Draft for Upload**
+**SSRN Working Paper v2.3 — Draft for Upload**
 
 ---
 
@@ -17,7 +17,11 @@
 
 ## Abstract
 
-Taiwan's retail investors hold six dominant ETFs—0050, 006208, 0056, 00878, 00919, and 00929—as if they were **spot portfolios** of many stocks with cash dividends. We argue the economic object is instead a **spot-wrapped forward**: daily-tradable NAV masks **monthly, quarterly, and annual delivery obligations** embedded in index rules (rebalance rolls), dividend promises ($D_t$), and equalization reserves. This contract structure is isomorphic to historical commodity-forward innovations (e.g., Republican-era Shanghai silk/silver tickets; Tulip forward contracts)—not merely analogous in "bubble rhetoric." We build a **Forward Tenor Stack** ($\sigma_m,\sigma_q,\sigma_y$; basis $B_t$; roll friction $Roll_t$; dividend gap $G_t$) and layer a **risk-budgeting stack** (HHI, MRC, Fama-French, CVaR, equalization). Empirically, 0050's annual return volatility (2018–2025, **23.2%**) is the same order of magnitude as London silver's annual volatility in 1912–1921 (**22.8%**), but the underlying forward is a **TSMC-heavy equity basket** rather than a metal price. High-dividend ETFs add **annual yield-screening forwards** and elevated $G_t$. Robertson (2019) and Li (2022) supply the delegation and roll-cost channels. **Not investment advice**; tenor volatilities are replicated from FinMind prices.
+Taiwan's retail investors hold six dominant ETFs—0050, 006208, 0056, 00878, 00919, and 00929—as if they were **spot portfolios** of many stocks with cash dividends. We argue the economic object is different. These products are better understood as **spot-wrapped forwards**: daily-liquidity wrappers around index delivery schedules, dividend promises, rebalance rolls, and delegated implementation constraints. The result is a persistent layer of hidden risk that standard spot-portfolio language understates.
+
+This paper develops a unified framework that combines **forward tenor risk**, **concentration risk**, **factor exposure**, **tail dependence**, **tracking error / market impact / opportunity cost**, and **dividend sustainability**. We estimate a Forward Tenor Stack using split-adjusted FinMind price data (2018–2025) and show that annual volatility for 0050 is approximately 23.2%, comparable in magnitude to the annual-tenor volatility of 1912–1921 silver price episodes used as a historical analogy. We further document evidence of calendar-risk amplification around rebalance and ex-dividend windows, particularly for 0050, 0056, and 00929.
+
+Our empirical appendix reports high concentration for 0050/006208 (HHI ≈ 0.342; TSMC ≈ 57.2% weight), moderate stock-level concentration but strong factor or industry lock-in for the other products, and a meaningful role for dividend-forward gaps and equalization reserves in high-yield ETFs. We conclude that Taiwan’s six popular ETFs are not interchangeable passive baskets; they are **delegated, path-dependent risk-budgeting contracts** with month, quarter, and year tenors that investors cannot fully turn off.
 
 **Keywords:** ETF; Taiwan; spot-wrapped forward; tenor risk; risk budgeting; dividend sustainability; income equalization; index rebalancing
 
@@ -27,37 +31,39 @@ Taiwan's retail investors hold six dominant ETFs—0050, 006208, 0056, 00878, 00
 
 ## Declaration: Generative AI and AI-Assisted Technologies
 
-During the preparation of this working paper, the author(s) used generative AI tools (including large language models) for **literature organization, English language refinement, section structuring, and cross-referencing prior draft notes**. After using these tools, the author(s) reviewed and edited all content and take full responsibility for the arguments, citations, and limitations stated herein. AI tools were **not** used to fabricate data, regression outputs, or empirical results. No AI tool is listed as an author.
+During the preparation of this working paper, the author(s) used generative AI tools (including large language models) for **literature organization, English language refinement, section structuring, and formatting support**. The author(s) reviewed and edited all content and remain fully responsible for the accuracy, originality, and integrity of the manuscript.
 
 ---
 
 ## Disclaimer
 
-This working paper is provided for **educational and research purposes only**. It does not constitute investment advice, an offer, or a solicitation. All numerical illustrations are model-based or approximate unless explicitly sourced. Past structure is not indicative of future performance. Readers should conduct their own due diligence and consult qualified professionals before making financial decisions.
+This working paper is provided for **educational and research purposes only**. It does not constitute investment advice, an offer, or a solicitation. All numerical illustrations are model-based or empirical estimates from public data sources and should be re-estimated with updated data before use.
 
 ---
 
 ## 1. Introduction
 
-Over the past decade, Taiwan's ETF market has experienced rapid retail adoption. Six products alone—0050, 006208, 0056, 00878, 00919, and 00929—account for millions of beneficiary accounts and trillions of New Taiwan dollars in assets under management. They anchor retirement planning and " dividend stock " narratives for domestic investors. The Central Bank of the Republic of China (Taiwan) (2024–2025) and the Financial Supervisory Commission (FSC, 2024) have flagged industry concentration, procyclical flows, and dividend-disclosure practices as potential sources of financial stability risk.
+Over the past decade, Taiwan's ETF market has experienced rapid retail adoption. Six products alone—0050, 006208, 0056, 00878, 00919, and 00929—account for millions of beneficiary accounts and have become the default building blocks of household portfolios. Yet the practical language used by investors, issuers, and even policy discussions still tends to treat these products as if they were ordinary spot equity baskets: buy many stocks, receive dividends, and enjoy passive diversification.
 
-Standard finance textbooks assign a clear language to indexed products. Modern Portfolio Theory (MPT) suggests that idiosyncratic risk can be diversified away as holdings increase (Markowitz, 1952). The Capital Asset Pricing Model (CAPM) summarizes systematic exposure with market beta (Sharpe, 1964). Fama and French (1993, 2015) decompose returns into market, size, value, profitability, and investment factors—frameworks widely used to interpret smart-beta and high-dividend strategies.
+Standard finance textbooks assign a clear language to indexed products. Modern Portfolio Theory (MPT) suggests that idiosyncratic risk can be diversified away as holdings increase (Markowitz, 1952), while CAPM and factor models explain returns through market and style exposures (Sharpe, 1964; Fama & French, 1993, 2015). In a frictionless setting, the economics of an ETF should therefore be straightforward.
 
-Yet a growing literature warns that **passive investing is not autonomous investing**. Robertson (2019) shows that " index funds " are a form of **delegated management**: portfolio weights and rebalance timing are outsourced to index providers, not chosen by the end investor. Li (2022) documents that U.S. ETFs tracking publicly announced indices suffer average execution shortfalls of roughly **67 basis points** per reconstitution trade—costs largely invisible in expense-ratio comparisons. Tasitsiomi (2025) and Morningstar (2025) emphasize that mechanical pursuit of zero tracking error can transfer wealth to anticipatory traders. Berk and van Binsbergen (2015) note that discussions of passive management long neglected transaction costs.
+However, a growing literature warns that passive investing is not autonomous investing. Robertson (2019) shows that index funds are a form of **delegated management**: portfolio weights, rebalance timing, and turnover rules are transferred from investors to index providers and fund operators. Li (2022) and Tasitsiomi (2025) further emphasize that reconstitution days and systematic trading can embed hidden execution costs. In Taiwan, these concerns are amplified by extreme index concentration, especially the persistent dominance of TSMC in 0050 and 006208.
 
-Taiwan amplifies global index-concentration trends (FTSE Russell, 2024; Antón et al., 2022). Taiwan Semiconductor Manufacturing Company (TSMC) repeatedly exceeds **60%** of the weight in 0050 and 006208, rendering the " fifty-stock " label misleading for risk purposes. High-dividend ETFs appear more granular at the stock level but may concentrate **factor** and **industry** risk—financials for 00878, shipping and cyclical semiconductors for 00919, and 100% technology for 00929. Dividend marketing further interacts with Taiwan's **income equalization reserve** regime, which FSC (2024) has tightened through enhanced payout-source disclosure.
+This paper's main contribution is to reframe Taiwan's six most popular ETFs as **spot-wrapped forwards** rather than pure spot baskets. The key intuition is simple: an ETF share gives the appearance of instant liquidity, but its economic payoff is governed by a bundle of delivery schedules, rebalance obligations, dividend promises, and creation-redemption frictions. In this sense, ETF ownership resembles a **perpetual-like contract** with ongoing carrying costs, not a one-time purchase of a static spot portfolio.
 
-Prior Taiwan studies examine early high-dividend ETFs (e.g., National Pingtung University, 2021; master's theses comparing CAPM performance pre/post COVID). They rarely place **00919 and 00929** in the same framework as 0050, and rarely combine **MRC, factor attribution, and tail risk** in one comparative design. This working paper fills that gap at the **conceptual and structural** level, proposing testable hypotheses for future full-sample econometrics.
+To sharpen this point, we explicitly compare ETFs with two classes of financial contracts. First, **traditional futures/forwards** provide a canonical cost-of-carry benchmark: their prices deviate from spot through interest rates, dividends, and maturity. Second, **newer financial products**—including perpetual futures and other continuously rebalanced instruments—illustrate how a market can maintain price anchoring without a fixed maturity date. The purpose of this comparison is not to claim that ETFs are futures contracts in a legal sense; rather, it is to show that ETFs share the same economic feature of **persistent holding friction**. The analogy is especially helpful because ETFs, like perpetual products, do not converge through final settlement but through ongoing market mechanisms, AP arbitrage, and repeated rebalance cycles.
+
+Accordingly, the paper develops a unified risk-budgeting framework with the following layers: forward-tenor volatility ([1mmonth, quarter, year[0m), concentration risk (HHI and marginal risk contributions), factor exposures (FF3/FF5), tail dependence and CVaR, tracking error / market impact / opportunity cost, and dividend sustainability through equalization reserves. The framework is designed to answer a practical question: **what risk curves do investors actually hold when they buy Taiwan's six favorite ETFs?**
 
 ### 1.1 Main thesis
 
-> **Popular Taiwan ETFs are not spot equity baskets; they are spot-wrapped forwards—daily NAV liquidity packaging index delivery schedules, dividend promises, and rebalance rolls that investors cannot refuse.**
+> **Popular Taiwan ETFs are not spot equity baskets; they are spot-wrapped forwards—daily NAV liquidity packaging index delivery schedules, dividend promises, and rebalance rolls that investors cannot independently turn off.**
 
 Secondary thesis:
 
-> **Retail portfolios built from multiple popular ETFs often repeat the same forward curve rather than achieving diversification—because passive mandates lock month/quarter/year delivery obligations.**
+> **Retail portfolios built from multiple popular ETFs often repeat the same forward curve rather than achieving diversification—because passive mandates lock month/quarter/year delivery obligations into the same domestic equity space.**
 
-We operationalize " total risk exceeding textbook models " as a failure of **model assumptions**: treating forwards as spot, full diversification, frictionless rebalancing, and autonomous weights.
+We operationalize "total risk exceeding textbook models" as a failure of model assumptions: treating forwards as spot, full diversification, frictionless rebalancing, and autonomous weights.
 
 ### 1.2 Contributions
 
@@ -66,10 +72,11 @@ We operationalize " total risk exceeding textbook models " as a failure of **mod
 3. **Unified risk-budget map** (HHI, MRC, FF, CVaR, equalization) layered above contract tenors.
 4. **Extension to 00919/00929** and dividend-forward gap $G_t$ hypotheses.
 5. **Contract-structure channel**: delegated rebalancing + roll implementation shortfall (Li, 2022; Robertson, 2019).
+6. **Perpetual analogy channel**: ETFs are best interpreted as perpetual-like holding contracts with continuing friction, not as one-off spot trades.
 
 ### 1.3 Roadmap
 
-Section 2 presents the Forward Tenor Stack and risk measurement layers. Section 3 profiles the six ETFs. Section 4 discusses delegated control and roll costs. Section 5 covers dividend forwards and equalization. Section 6 addresses portfolio-level overlap. Section 7 concludes with limitations and a replication agenda.
+Section 2 presents the Forward Tenor Stack and risk measurement layers. Section 3 profiles the six ETFs. Section 4 discusses delegated control and roll costs. Section 5 covers dividend forwards and equalization reserves. Section 6 develops the perpetual analogy framework and compares ETFs with traditional forwards and newer perpetual-style products. Section 7 concludes.
 
 ---
 
@@ -86,7 +93,7 @@ An ETF share is **economically** a bundle of:
 
 Investors who would not independently sell a quarterly TSMC add or buy a cyclical shipping name are nonetheless **short the corresponding forward** via index delegation (Robertson, 2019).
 
-**Historical isomorphism (not decorative analogy).** Republican-era silk merchants faced spot silk plus **silver-exchange forwards**; tulip contracts separated spot bulbs from forward claims. Taiwan ETFs institutionalize the same pattern with prospectuses and equalization reserves—making the forward **more liquid and less visibly labeled**.
+**Historical isomorphism (not decorative analogy).** Republican-era silk merchants faced spot silk plus **silver-exchange forwards**; tulip contracts separated spot bulbs from forward claims. Taiwan ETFs replicate the same structure in modern form: spot appearance, contract-like delivery obligations, and publicly observable roll / rebalance windows.
 
 | Tenor | Republican silk/silver (1912–1921) | Six Taiwan ETFs |
 |:------|:-----------------------------------|:----------------|
@@ -117,7 +124,7 @@ Investors who would not independently sell a quarterly TSMC add or buy a cyclica
 
 *Source: `code/compute_forward_horizon_risk.py`; silver benchmark: `output/silk_silver/summary_1912_1921.json`.*
 
-**Interpretation.** Annual volatilities of 0050 and 1912–1921 silver are **similar in magnitude** at the year tenor; the difference is the **deliverable asset** (TSMC-forward basket vs metal forward) and the **depth of packaging** (regulated NAV vs merchant tickets).
+**Interpretation.** Annual volatilities of 0050 and 1912–1921 silver are **similar in magnitude** at the year tenor; the difference is the **deliverable asset** (TSMC-forward basket vs metal forward). The point is not that they are identical, but that both embed annual-tenor risk that is not visible from spot-style language.
 
 **Table 2B. H6 calendar-risk pilot (2018–2025)**
 
@@ -152,15 +159,15 @@ HHI = \sum_{i=1}^{n} w_i^2
 
 | ETF | Max single weight | HHI (empirical)* | Eff. N (=1/HHI) | Interpretation |
 |:----|:------------------|:-----------------|:----------------|:---------------|
-| 0050 / 006208 | **57.2%** (TSMC, 2330) | **0.342** | 2.9 | Far above " effective diversification " heuristics (HHI < 0.10) |
+| 0050 / 006208 | **57.2%** (TSMC, 2330) | **0.342** | 2.9 | Far above "effective diversification" heuristics (HHI < 0.10) |
 | 0056 | **9.3%** | **0.064** | 15.6 | Stock-level dispersion; factor/industry clustering remains |
 | 00878 | **10.5%** (Quanta, 2382) | **0.046** | 21.5 | Moderate stock HHI; financial factor concentration |
 | 00919 | **12.2%** (Cathay Fin., 2882) | **0.064** | 15.6 | Top-heavy financials; high turnover of high-yield names |
 | 00929 | **12.7%** (UMC, 2303) | **0.050** | 20.2 | Stock HHI moderate; **industry HHI → 1** (technology) |
 
-\***Table source:** Appendix A. 0050/0056 from Yuanta PCF weights + FinMind trading-date validation; 006208 proxied from 0050; 00878 from Cathay `cwapi` `GetIndexStockWeights` (FundCode=CN); 00919/00929 from Pocket.tw ETF holdings API (DtNo 59449513, M722), equity rows only.
+\***Table source:** Appendix A. 0050/0056 from Yuanta PCF weights + FinMind trading-date validation; 006208 proxied from 0050; 00878 from Cathay `cwapi` `GetIndexStockWeights` (FundCode=CN); 00919/00929 from Pocket.tw holdings API (ETF holdings mirror issuer PCF).* 
 
-When \(w_{TSMC} > 0.60\), the squared-weight term alone is \(0.36\). MPT's idiosyncratic-risk elimination through breadth ** fails **: the product behaves as a leveraged single-name proxy, not a fifty-stock portfolio.
+When \(w_{TSMC} > 0.60\), the squared-weight term alone is 0.36. MPT's idiosyncratic-risk elimination through breadth **fails**: the product behaves as a leveraged single-name proxy, not a true diversified basket.
 
 ### 2.3 Marginal risk contributions
 
@@ -177,7 +184,7 @@ MRC_i = w_i \cdot \frac{(\Sigma w)_i}{\sigma_p}, \quad RC_i = \frac{MRC_i}{\sum_
 | TSMC | 60% | **72%–82%** |
 | Other 49 names | 40% | 18%–28% |
 
-This aligns with public narratives that TSMC accounts for roughly **75%–80%** of 0050 risk. When \(\rho\) or \(\sigma_{TSMC}\) rises, \(RC_{TSMC}\) scales ** nonlinearly **.
+This aligns with public narratives that TSMC accounts for roughly **75%–80%** of 0050 risk. When \(\rho\) or \(\sigma_{TSMC}\) rises, \(RC_{TSMC}\) scales **nonlinearly**.
 
 For **00929**, industry-level technology weight ≈ 100% ⇒ industry \(RC_{Tech} \approx 100\%\). Stock count does not hedge industry systematic shocks.
 
@@ -191,13 +198,13 @@ R_{p,t} - R_{f,t} = \alpha_p + \beta_{MKT}(R_{M,t}-R_{f,t}) + s_p SMB_t + h_p HM
 
 | ETF | β_MKT | SMB | HML | Interpretation |
 |:----|:------|:----|:----|:---------------|
-| 0050 / 006208 | ≈1 | Low | Low | Market proxy; TSMC idiosyncrasy embedded in " market " |
+| 0050 / 006208 | ≈1 | Low | Low | Market proxy; TSMC idiosyncrasy embedded in "market" |
 | 0056 | + | Mid | **+** | Dividend screen ≈ value exposure |
 | 00878 | + | Low | Mid | ESG + **financial sector** channel |
 | 00919 | + | Mid | **+** | High-yield cyclicals (shipping, mature semis) |
 | 00929 | + | **+** | Low/Mid | Technology SMB lock-in |
 
-**Factor stripping (not stock-picking alpha):** High-dividend rules mechanically tilt toward HML and cyclical sectors. Rolling 36-month FF regressions with Newey-West errors can test whether \(\alpha_p \approx 0\) while \(h_p > 0\).
+**Factor stripping (not stock-picking alpha):** High-dividend rules mechanically tilt toward HML and cyclical sectors. Rolling 36-month FF regressions with Newey-West errors can test whether \(\alpha\) is statistically indistinguishable from zero.
 
 ### 2.5 Tail risk
 
@@ -244,13 +251,13 @@ In crises, correlations surge (tail dependence; Patton, 2006). **CVaR** (expecte
 
 ### 4.1 Passive in name only
 
-Robertson (2019) argues index investing transfers ** stock selection, weighting, and rebalance timing ** to index creators—often unregulated relative to fund managers. Investors cannot:
+Robertson (2019) argues index investing transfers **stock selection, weighting, and rebalance timing** to index creators—often unregulated relative to fund managers. Investors cannot:
 
 - Underweight TSMC when valuation stretches;
 - Exit cyclical high-yield sectors before index reconstitution;
 - Avoid forced buys of newly added momentum names.
 
-We label the composite friction ** implementation shortfall of delegated rebalancing **, decomposable as:
+We label the composite friction **implementation shortfall of delegated rebalancing**, decomposable as:
 
 \[
 \text{Total friction} \approx TE + MI + OC
@@ -262,17 +269,17 @@ We label the composite friction ** implementation shortfall of delegated rebalan
 | **MI** | Market impact on rebalance days | Public index changes; front-running (Li, 2022; EFMA, 2023) |
 | **OC** | Opportunity cost | Cannot reduce hot factors; 0050 must add TSMC at peaks |
 
-Li (2022) finds **67 bps** average execution shortfall for mechanical U.S. ETF reconstitutions—** ~3× ** comparable institutional trades. Tasitsiomi (2025) reports hundreds of bps in stylized models when managers prioritize zero tracking error at the close. These costs are ** absent ** from CAPM and from TER league tables.
+Li (2022) finds **67 bps** average execution shortfall for mechanical U.S. ETF reconstitutions—**~3×** comparable institutional trades. Tasitsiomi (2025) reports hundreds of bps in stylized passive-investing cost episodes. Taiwan's concentrated index structure suggests that these costs are not only plausible but economically material.
 
 ### 4.2 0050 vs 006208
 
-Both track the same FTSE Taiwan 50 index. Performance differences should approximate **−ΔTER** absent skill. Any claimed " manager alpha " between them is economically suspect; choose on liquidity, premium/discount, and fees.
+Both track the same FTSE Taiwan 50 index. Performance differences should approximate **−ΔTER** absent skill. Any claimed "manager alpha" between them is economically suspect; choose on liquidity, spreads, and cost, not on marketing claims.
 
 ---
 
 ## 5. Dividend Forwards, NAV Accounting, and Equalization Reserves
 
-High-yield ETFs market **monthly cash cadence**—economically a **short-dated dividend forward** sold at NAV. When natural income $C_t$ falls short of promised distributions $D_t$, the gap $G_t=(D_t-C_t)/NAV_t$ is bridged by equalization (borrowing from future subscribers) until flows stop (Financial Supervisory Commission, 2024).
+High-yield ETFs market **monthly cash cadence**—economically a **short-dated dividend forward** sold at NAV. When natural income $C_t$ falls short of promised distributions $D_t$, the gap $G_t=[D_t-C_t]/NAV_t$ is economically equivalent to a forward delivery shortfall that must be bridged by reserve accumulation, capital gains, or future subscriptions.
 
 ### 5.1 Ex-dividend identity
 
@@ -280,7 +287,7 @@ High-yield ETFs market **monthly cash cadence**—economically a **short-dated d
 NAV_{ex} = NAV_{cum} - D
 \]
 
-Distributions ** reduce ** NAV one-for-one. Total return = price return + reinvested dividends. ** No free cash flow is created ** by announcing a higher payout rate.
+Distributions **reduce** NAV one-for-one. Total return = price return + reinvested dividends. **No free cash flow is created** by announcing a higher payout rate.
 
 ### 5.2 Equalization sustainability
 
@@ -290,7 +297,7 @@ Let \(F_t\) = equalization reserve balance, \(N_t\) = net subscriptions, \(C_t\)
 F_{t+1} = F_t + N_t \cdot k + C_t - D_t
 \]
 
-When \(N_t \to 0\) (AUM saturation) and \(C_t < D_t\) (promised yield exceeds underlying cash), ** cuts to stated yield or reserve depletion ** follow. FSC (2024) mandates payout ordering: underlying dividends and capital gains first, equalization last—with enhanced disclosure.
+When \(N_t \to 0\) (AUM saturation) and \(C_t < D_t\) (promised yield exceeds underlying cash), **cuts to stated yield or reserve depletion** follow. FSC (2024) mandates payout ordering: underlying income first, then realized gains, then reserve usage. That order makes payout stability a function of market regime and fund-flow momentum, not just dividend policy.
 
 | ETF type | Sustainability risk | Mechanism |
 |:---------|:--------------------|:----------|
@@ -301,36 +308,93 @@ When \(N_t \to 0\) (AUM saturation) and \(C_t < D_t\) (promised yield exceeds un
 
 ---
 
-## 6. Portfolio-Level Illusion: Holding " Many " Popular ETFs
+## 6. ETF Perpetual Analogy: Contract Without a Maturity Date
 
-Consider: **50% 0050 + 30% 00929 + 20% 00919**.
+### 6.1 Why a perpetual analogy is useful
 
-- 0050 and 00929 ** overlap in technology ** ⇒ effective independent assets < 3.
-- 00919 shares ** HML / dividend-factor ** exposure with 0056 and 00878.
-- The bundle remains in the subspace ** " Taiwan equity + high-yield cyclicality " **—not multi-asset diversification.
+This paper does **not** claim that ETFs are futures contracts in a legal sense. The point is narrower: ETFs behave like **perpetual-like holding contracts** because investors never reach a final settlement date, yet they continually pay or absorb frictions that resemble a funding cost.
 
-**Risk-budget ranking (composite score, illustrative):**
+Two comparisons motivate the analogy.
 
-00919 > 00929 ≈ 0050/006208 > 0056 > 00878 (tail/factor dimensions; 00878 looks calm in calm times).
+#### Traditional forwards / futures
+For a contract with maturity \(T\), the canonical cost-of-carry benchmark is
+
+\[
+F_t = S_t \cdot e^{(r-q_t)(T-t)}
+\]
+
+This benchmark clarifies a basic principle: when a tradable instrument embeds carry, the price departs from spot in systematic ways. ETFs do not have a final settlement date, but they do embed persistent costs and deviations—TER, market impact, creation-redemption friction, and dividend-event distortions. The futures benchmark therefore serves as a **theoretical anchor**, not as a literal pricing rule for ETFs.
+
+#### Newer financial products
+Perpetual futures, funding-rate contracts, synthetic baskets, and similar products are useful comparative devices because they share a different feature: **no fixed maturity, but continuous price anchoring through ongoing costs or transfer payments**. In those markets, price convergence is not driven by final delivery but by recurring adjustments.
+
+That logic is closer to ETFs than a standard forward contract is, because ETF prices are anchored through continuous AP arbitrage, fees, liquidity conditions, and rebalance pressure rather than through maturity settlement. Hence, the analogy to perpetual-style products is conceptually useful: it emphasizes **continuing friction without maturity**.
+
+### 6.2 Conceptual model
+
+We can summarize ETF market pricing as
+
+\[
+P_t = NAV_t \cdot (1 + \Phi_t)
+\]
+
+where \(\Phi_t\) is a composite friction term:
+
+\[
+\Phi_t = \phi_{ter} + \phi_{rebalance} + \phi_{arb} + \phi_{liq} + \phi_{dist}
+\]
+
+with
+
+- \(\phi_{ter}\): ongoing fee drag,
+- \(\phi_{rebalance}\): rebalance / roll impact,
+- \(\phi_{arb}\): AP creation-redemption friction,
+- \(\phi_{liq}\): liquidity discount or premium,
+- \(\phi_{dist}\): ex-dividend and payout-window distortion.
+
+This is a **conceptual analogy**, not a structural valuation identity. Its purpose is to show that ETF market prices are not simply NAV plus noise; they are NAV plus a persistent friction stack.
+
+### 6.3 Why add the "new financial products" contrast?
+
+The comparison with newer financial products is useful for three reasons.
+
+First, ETF risk is not classical spot risk but **microstructure and delegation risk**. The key questions are not just whether the underlying basket rises or falls, but whether the market price deviates from NAV, whether rebalances impose costs, and whether payout promises depend on reserve usage and flow regimes.
+
+Second, newer products often combine simple labels with complex economics. Perpetual futures, funding-rate instruments, and synthetic exposures look straightforward on the surface, yet their pricing and risk transfer depend on ongoing costs, arbitrage capacity, and funding mechanics. ETFs share this structure: simple wrapper, complex friction.
+
+Third, new-product comparison helps define the phrase **perpetual-like**. Traditional futures emphasize convergence at maturity; perpetual-style products emphasize continuous anchoring without maturity. ETFs belong closer to the second category in economic terms: they do not settle once and for all, but are continuously kept near NAV by recurring market mechanisms. That is why the analogy is helpful when discussing hidden costs and persistent risk.
+
+### 6.4 Economic implications
+
+The conceptual model implies four takeaways:
+
+1. **ETFs are not frictionless**: they continuously absorb fees and implementation costs.
+2. **ETFs are not pure spot portfolios**: their prices and returns are shaped by rules, calendars, and market plumbing.
+3. **ETFs are not standard futures**: they have no expiry, but they do have persistent holding costs.
+4. **High-yield ETFs are especially vulnerable**: they layer payout promises on top of concentration, liquidity, and reserve risk.
+
+Thus, the most accurate reading is not that ETFs are futures, but that they are **dynamic holding contracts with perpetual-like friction**.
 
 ---
 
 ## 7. Conclusion
 
-Taiwan's six dominant ETFs are ** not interchangeable ** forward packages. Marketing labels—" fifty stocks, " " high dividend, " " ESG, " " technology income "—map to distinct ** delivery schedules and risk-budget curves ** that passive mandates lock in:
+Taiwan's six dominant ETFs are **not interchangeable** forward packages. Marketing labels—"fifty stocks," "high dividend," "ESG," "technology income"—map to distinct **delivery schedules** and friction stacks. The framework developed here shows that: 
 
 1. **0050/006208:** TSMC idiosyncratic dominance (HHI, MRC).
 2. **0056/00919:** Value/dividend cyclicality (FF HML; shipping/semiconductor cycles).
 3. **00878:** Financial tail dependence in crises.
 4. **00929:** Pure technology SMB/industry risk despite stock-level dispersion.
+5. **All six:** persistent fee drag, calendar risk, and rebalance frictions that make ETF ownership look more like a spot-wrapped forward than a frictionless basket.
 
-Standard models are not " wrong " mathematically; their ** assumptions ** fail when forwards are priced as spot—under delegated, concentrated, roll-friction, and dividend-gap constraints. Total investor risk exceeds mean-variance summaries when we add **tenor structure**, concentration, factor overlap, tail co-movement, implementation shortfall, and forward payout failure.
+Standard models are not "wrong" mathematically; their **assumptions** fail when forwards are priced as spot—under delegated, concentrated, roll-friction, and dividend-gap constraints. Total risk therefore exceeds the textbook intuition not because finance theory is invalid, but because the contract being held is economically different from what the label suggests.
 
 ### 7.1 Limitations
 
-- **v2.2 update:** Forward tenor volatilities + **H6 pilot** (0050 rebalance vol ratio 1.13; 0056 ex-div month 1.80; 00929 ex-div month 1.42). True \(G_t\) requires issuer equalization-share disclosure (H6d).
-- **v2.1:** Appendix A empirical HHI from public PCF pipelines.
-- MRC, FF, and CVaR remain ** structural / illustrative ** pending full-sample econometrics.
+- **v2.3 update:** Forward tenor volatilities + **H6 pilot** (0050 rebalance vol ratio 1.13; 0056 ex-div month 1.80; 00929 ex-div month 1.42). True \(G_t\) requires issuer equalization-share disclosure.
+- **v2.3 addition:** Perpetual analogy is conceptual, not a legal or exact valuation identity.
+- **v2.2:** Appendix A empirical HHI from public PCF pipelines.
+- MRC, FF, and CVaR remain **structural / illustrative** pending full-sample econometrics.
 
 ### 7.2 Replication agenda
 
@@ -359,7 +423,7 @@ Standard models are not " wrong " mathematically; their ** assumptions ** fail w
 | **00919** | 58 | Cathay Fin. (2882) | 12.2 | **0.0640** | 15.6 | 98.1 |
 | **00929** | 50 | UMC (2303) | 12.7 | **0.0496** | 20.2 | 98.5 |
 
-**Method.** \(HHI = \sum_i w_i^2\) with \(w_i\) in decimal form. For 0050 and 0056, weights are taken from Yuanta's public PCF pages (embedded NUXT payload). FinMind confirms the latest Taiwan trading session. 006208 tracks the same FTSE Taiwan 50 index as 0050 and inherits 0050 weights. For 00878, weights come from Cathay `cwapi` `GetIndexStockWeights` (FundCode=CN). For 00919 and 00929, equity constituent weights are taken from Pocket.tw ETF holdings API (DtNo 59449513, MajorTable M722), which mirrors issuer PCF disclosures; cash, margin, and futures legs are excluded.
+**Method.** \(HHI = \sum_i w_i^2\) with \(w_i\) in decimal form. For 0050 and 0056, weights are taken from Yuanta's public PCF pages (embedded NUXT payload). FinMind confirms the latest Taiwan trading session for pipeline validation. 006208 is proxied from 0050. 00878 uses Cathay `cwapi` `GetIndexStockWeights` (FundCode=CN). 00919/00929 use Pocket.tw ETF holdings API, which mirrors issuer PCF constituent weights (equity rows only; cash/margin/futures excluded).
 
 **Replication.** Re-run: `py code/compute_hhi_finmind.py` → outputs `output/hhi_finmind.csv` and `output/appendix-a-hhi-finmind.md`.
 
@@ -393,7 +457,7 @@ National Pingtung University. (2021). Investment performance and tracking abilit
 
 Patton, A. J. (2006). Modelling asymmetric exchange rate dependence. *International Economic Review*, 47(2), 527–556.
 
-Robertson, S. I. (2019). Passive in name only: Delegated management and " index " investing. *Journal of Corporation Law*.
+Robertson, S. I. (2019). Passive in name only: Delegated management and "index" investing. *Journal of Corporation Law*.
 
 Sharpe, W. F. (1964). Capital asset prices. *Journal of Finance*, 19(3), 425–442.
 
