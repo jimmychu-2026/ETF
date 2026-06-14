@@ -1,4 +1,4 @@
-# Risk Budgeting Curves You Cannot Turn Off: A Unified Framework for Taiwan's Six Most Popular ETFs
+# Risk Budgeting and Hidden Frictions in Taiwan’s Six Most Popular ETFs
 
 **SSRN Working Paper v2.3 — Draft for Upload**
 
@@ -17,13 +17,14 @@
 
 ## Abstract
 
-Taiwan's retail investors commonly treat six dominant ETFs—0050, 006208, 0056, 00878, 00919, and 00929—as if they were spot-like equity portfolios with cash dividends. This paper argues that they are better understood as **spot-wrapped forwards**: economically, they package index delivery schedules, dividend promises, and rebalance rolls into a daily-traded wrapper. The main implication is that the relevant risk is not only the risk of the underlying stocks, but also the risk created by holding-period tenors, concentration, factor exposures, tail dependence, and implementation frictions.
+Taiwan's retail investors commonly treat six dominant ETFs—0050, 006208, 0056, 00878, 00919, and 00929—as if they were spot-like equity portfolios with cash dividends. This paper argues that they are better understood as **spot-wrapped forwards**: economically, they package index delivery schedules, dividend promises, and rebalance rolls into a daily-traded wrapper. The relevant risk is therefore not only the risk of the underlying stocks, but also the risk created by holding-period tenors, concentration, factor exposures, tail dependence, and implementation frictions.
 
-The paper develops a unified risk-budgeting framework combining **forward tenor risk**, **concentration risk**, **factor exposure**, **tail dependence**, **tracking error / market impact / opportunity cost**, and **dividend sustainability**. Using split-adjusted FinMind price data for 2018–2025, we estimate a Forward Tenor Stack and document that annual volatility for 0050 is approximately 23.2%, which is comparable in magnitude to the annual-tenor volatility of the 1912–1921 silver benchmark used as a historical analogy. We also find evidence of calendar-risk amplification around rebalance and ex-dividend windows, particularly for 0050, 0056, and 00929.
+We develop a unified risk-budgeting framework combining **Forward Tenor Stack** measures, concentration risk (HHI and marginal risk contributions), factor exposures (FF3/FF5), tail dependence and CVaR, tracking error / market impact / opportunity cost, and dividend sustainability through equalization reserves. Using split-adjusted FinMind price data for 2018–2025, we estimate monthly, quarterly, and annual volatility patterns and document that 0050’s annual volatility is approximately 23.2%, comparable in magnitude to the annual-tenor volatility of the 1912–1921 silver benchmark used as a historical analogy. We also find evidence of calendar-risk amplification around rebalance and ex-dividend windows, particularly for 0050, 0056, and 00929.
 
-The empirical appendix reports high concentration for 0050 and 006208 (HHI ≈ 0.342; TSMC ≈ 57.2% weight), moderate stock-level concentration but meaningful factor or industry lock-in for the remaining products, and a nontrivial role for dividend-forward gaps and equalization reserves in high-yield ETFs. The results suggest that Taiwan's six popular ETFs are not interchangeable passive baskets; they are **delegated, path-dependent risk-budgeting contracts** with month, quarter, and year tenors that investors do not control directly.
+The empirical appendix reports high concentration for 0050 and 006208 (HHI ≈ 0.342; TSMC ≈ 57.2% weight), moderate stock-level concentration but meaningful factor or industry lock-in for the remaining products, and a nontrivial role for dividend-forward gaps and equalization reserves in high-yield ETFs. The results suggest that Taiwan’s six popular ETFs are not interchangeable passive baskets; they are **delegated, path-dependent risk-budgeting contracts** with month, quarter, and year tenors that investors do not control directly.
 
-**Keywords:** ETF; Taiwan; spot-wrapped forward; tenor risk; risk budgeting; dividend sustainability; income equalization; index rebalancing
+**Keywords**: ETF; Taiwan; spot-wrapped forward; tenor risk; risk budgeting; dividend sustainability; income equalization; index rebalancing
+
 
 **JEL Classification:** G11, G12, G14, G23
 
@@ -379,15 +380,18 @@ Thus, the most accurate reading is not that ETFs are futures, but that they are 
 
 ## 7. Conclusion
 
-Taiwan's six dominant ETFs are not interchangeable forward packages. Marketing labels—“fifty stocks,” “high dividend,” “ESG,” “technology income”—map to distinct delivery schedules and friction stacks. The framework developed here shows that:
+Taiwan's six dominant ETFs are not interchangeable forward packages. Marketing labels—“fifty stocks,” “high dividend,” “ESG,” “technology income”—map to distinct delivery schedules and friction stacks. The results of this paper suggest that:
 
-1. **0050/006208:** TSMC idiosyncratic dominance (HHI, MRC).
-2. **0056/00919:** Value/dividend cyclicality (FF HML; shipping/semiconductor cycles).
-3. **00878:** Financial tail dependence in crises.
-4. **00929:** Pure technology SMB/industry risk despite stock-level dispersion.
-5. **All six:** persistent fee drag, calendar risk, and rebalance frictions that make ETF ownership look more like a spot-wrapped forward than a frictionless basket.
+**0050/006208** are dominated by TSMC idiosyncratic risk, as reflected in HHI and marginal risk contributions.
+**0056/00919** are best interpreted through value and dividend cyclicality, with meaningful exposure to HML and sector turnover.
+**00878** exhibits material financial tail dependence in crisis states.
+**00929** remains exposed to pure technology and industry concentration despite stock-level dispersion.
+All six ETFs carry persistent fee drag, calendar risk, and rebalance frictions that make them closer to spot-wrapped forwards than to frictionless baskets.
+The main theoretical implication is that standard asset-pricing models are not wrong mathematically, but their assumptions become incomplete when ETFs are priced and held as if they were spot portfolios. The practical implication is that investors should evaluate ETF risk using both the underlying portfolio composition and the contract-like frictions created by index delegation, payout design, and trading mechanics.
 
-Standard models are not wrong mathematically; their assumptions fail when forwards are priced as spot—under delegated, concentrated, roll-friction, and dividend-gap constraints. Total risk therefore exceeds textbook intuition not because finance theory is invalid, but because the contract being held is economically different from what the label suggests.
+This paper has several limitations. First, some components of MRC, FF, and CVaR remain structural or illustrative pending full-sample econometrics. Second, the perpetual analogy is conceptual rather than a legal or exact valuation identity. Third, the dividend-sustainability analysis would benefit from richer issuer disclosure on equalization reserves and payout composition.
+
+Future work should extend the analysis with higher-frequency event windows, rolling factor regressions, and updated issuer-level data on distribution sources. Even with these limitations, the evidence is sufficient to show that Taiwan’s six most popular ETFs should be viewed not as simple spot holdings, but as delegated contracts with persistent risk budgets and hidden frictions.
 
 ### 7.1 Limitations
 
