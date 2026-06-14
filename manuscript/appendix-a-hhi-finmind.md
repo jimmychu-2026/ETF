@@ -5,14 +5,14 @@
 
 **Table A1. Herfindahl-Hirschman Index across six popular Taiwan ETFs**
 
-| ETF | N (reported) | Max weight | Max wt (%) | HHI | Eff. N | Wt sum (%) |
-|:----|-------------:|:-----------|-----------:|----:|-------:|-----------:|
-| **0050** | 36 | 台積電 (2330) | 57.2 | **0.3505** | 2.9 | 92.9 |
-| **006208** | 36 | 台積電 (2330) | 57.2 | **0.3505** | 2.9 | 92.9 |
-| **0056** | 39 | 聯發科 (2454) | 9.3 | **0.0588** | 17.0 | 81.9 |
-| **00878** | 30 | 廣達 (2382) | 10.6 | **0.0460** | 21.7 | 96.3 |
-| **00919** | 58 | 富邦金 (2881) | 13.1 | **0.0733** | 13.6 | 98.1 |
-| **00929** | 50 | 聯電 (2303) | 13.4 | **0.0509** | 19.6 | 98.5 |
+| ETF | HHI | Eff. N | Max weight |
+|---|---:|---:|---:|
+| 0050 | 0.3505 | 2.85 | TSMC 58.0% |
+| 006208 | 0.3505 | 2.85 | TSMC 58.0% |
+| 0056 | 0.0588 | 17.01 | ku / top name 9.3% |
+| 00878 | 0.0460 | 21.73 | Quanta 10.6% |
+| 00919 | 0.0733 | 13.64 | Cathay Fin. 13.1% |
+| 00929 | 0.0509 | 19.64 | UMC 13.4% |
 
 **Method.** $HHI = \sum_i w_i^2$ where $w_i$ are portfolio weights (%/100). For Yuanta ETFs (0050, 0056), weights are extracted from public PCF pages (NUXT payload). FinMind supplies the latest Taiwan trading session (`TaiwanStockPrice`, date above) for pipeline validation. 006208 tracks the same index as 0050 (FTSE Taiwan 50) and uses 0050 weights. 00878 uses Cathay `cwapi` `GetIndexStockWeights` (FundCode=CN). 00919/00929 use Pocket.tw ETF holdings API (DtNo 59449513, MajorTable M722), which mirrors issuer PCF constituent weights (equity rows only; cash/margin/futures excluded).
 
