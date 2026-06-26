@@ -1,6 +1,6 @@
 # Risk Budgeting and Hidden Frictions in Taiwan’s Six Most Popular ETFs
 
-**SSRN Working Paper v2.3 — Draft for Upload**
+**SSRN Working Paper v2.4 — Draft for Upload**
 
 ---
 
@@ -21,7 +21,7 @@ Taiwan's retail investors commonly treat six dominant ETFs—0050, 006208, 0056,
 
 We develop a unified risk-budgeting framework combining **Forward Tenor Stack** measures, concentration risk (HHI and marginal risk contributions), factor exposures (FF3/FF5), tail dependence and CVaR, tracking error / market impact / opportunity cost, and dividend sustainability through equalization reserves. Using split-adjusted FinMind price data for 2018–2025, we estimate monthly, quarterly, and annual volatility patterns and document that 0050’s annual volatility is approximately 23.2%, comparable in magnitude to the annual-tenor volatility of the 1912–1921 silver benchmark used as a historical analogy. We also find evidence of calendar-risk amplification around rebalance and ex-dividend windows, particularly for 0050, 0056, and 00929.
 
-The empirical appendix reports high concentration for 0050 and 006208 (HHI ≈ 0.3505; TSMC ≈ 57.2% weight), moderate stock-level concentration but meaningful factor or industry lock-in for the remaining products, and a nontrivial role for dividend-forward gaps and equalization reserves in high-yield ETFs. The results suggest that Taiwan’s six popular ETFs are not interchangeable passive baskets; they are **delegated, path-dependent risk-budgeting contracts** with month, quarter, and year tenors that investors do not control directly.
+The empirical appendix reports high concentration for 0050 and 006208 (HHI ≈ 0.3505; TSMC ≈ 57.2% weight), moderate stock-level concentration but meaningful factor or industry lock-in for the remaining products, and a nontrivial role for dividend-forward gaps and equalization reserves in high-yield ETFs. As an extension case study, publicly disclosed holdings changes on 25 June 2026 show eight active ETFs rebalancing on the same date, with synchronized net buying in UMC (2303) across six funds totaling more than 10.57 million shares—consistent with mandatory index delivery obligations ($Delivery_t$) and roll friction ($Roll_t$), though not sufficient to quantify execution shortfall or anticipatory trading profits. The results suggest that Taiwan’s six popular ETFs are not interchangeable passive baskets; they are **delegated, path-dependent risk-budgeting contracts** with month, quarter, and year tenors that investors do not control directly.
 
 **Keywords**: ETF; Taiwan; spot-wrapped forward; tenor risk; risk budgeting; dividend sustainability; income equalization; index rebalancing; portfolio concentration
 
@@ -74,10 +74,11 @@ We operationalize “total risk exceeding textbook models” as a failure of mod
 4. **Extension to 00919/00929** and dividend-forward gap $G_t$ hypotheses.
 5. **Contract-structure channel**: delegated rebalancing and roll implementation shortfall (Li, 2022; Robertson, 2019).
 6. **Perpetual analogy channel**: ETFs can be interpreted as perpetual-like holding contracts with continuing friction, rather than as one-off spot trades.
+7. **Extension case study (25 June 2026)**: publicly verifiable holdings snapshots from eight active ETFs illustrate synchronized rebalance baskets on a single disclosure date (§4.3; Appendix C).
 
 ### 1.3 Roadmap
 
-Section 2 presents the Forward Tenor Stack and risk measurement layers. Section 3 profiles the six ETFs. Section 4 discusses delegated control and roll costs. Section 5 covers dividend forwards and equalization reserves. Section 6 develops the perpetual analogy framework and compares ETFs with traditional forwards and contemporary new financial products. Section 7 concludes.
+Section 2 presents the Forward Tenor Stack and risk measurement layers. Section 3 profiles the six ETFs. Section 4 discusses delegated control, roll costs, and an extension case study of synchronized rebalance-day holdings changes. Section 5 covers dividend forwards and equalization reserves. Section 6 develops the perpetual analogy framework and compares ETFs with traditional forwards and contemporary new financial products. Section 7 concludes.
 
 ---
 
@@ -308,6 +309,8 @@ This creates a specific risk pattern invisible to a one-time snapshot regression
 
 Rolling FF3/FF5 regressions (36-month window, quarterly re-estimation) are therefore essential to detect regime shifts in factor exposure, not merely cross-sectional factor levels.
 
+As an illustrative microstructure example, on 25 June 2026 one active ETF (00993A) reduced positions in Yuanta, Cathay, and KGI Financial while increasing SinoPac Financial on the same rebalance date (§4.3). Such same-day rotations are **consistent with** rule-based factor rebalancing rather than evidence of security-selection α, but formal inference requires the regressions above.
+
 ### 2.5 Tail risk
 
 In crises, correlations surge (tail dependence; Patton, 2006). **CVaR** (expected shortfall) better captures capital-at-risk than variance alone.
@@ -373,9 +376,91 @@ We describe the resulting implementation shortfall of delegated rebalancing as t
 
 Li (2022) finds a 67 bps average execution shortfall for mechanical U.S. ETF reconstitutions, roughly three times comparable institutional trades. Tasitsiomi (2025) reports larger stylized passive-investing cost episodes. Taiwan's concentrated index structure suggests that these costs are economically material rather than merely theoretical.
 
+On 25 June 2026, eight active ETFs disclosed holdings changes on the same public rebalance date, with concentrated net buying in UMC (2303) and net selling in Delta Electronics (2308) and Gold Circuit (2368) across multiple funds (§4.3; Appendix C). This snapshot is **consistent with** predictable rebalance baskets and mandatory delivery obligations; it does not, by itself, measure market impact, front-running, or NAV losses.
+
 ### 4.2 0050 vs 006208
 
 Both track the same FTSE Taiwan 50 index. Performance differences should approximate $-\Delta TER$ absent skill. Any claim of meaningful manager alpha between them is therefore difficult to justify economically; the relevant comparison is liquidity, spreads, and cost.
+
+### 4.3 Extension case study: synchronized rebalance disclosures (25 June 2026)
+
+This subsection reports a **descriptive** case study drawn from public holdings-change notices. It is not a direct test of the six core ETFs analyzed elsewhere in the paper; rather, it examines whether observable microstructure patterns in Taiwan's broader ETF ecosystem are **consistent with** the delegated-delivery framework developed in §§2–4.
+
+#### 4.3.1 Motivation and scope
+
+The spot-wrapped-forward interpretation predicts that index-linked funds will exhibit **rule-driven, calendar-clustered trading** on public rebalance dates: mandatory buys and sells of specific names ($Delivery_t$), potential roll friction ($Roll_t$), and limited investor discretion over individual positions (Robertson, 2019; Li, 2022). A single-day, multi-fund holdings snapshot can test whether such patterns are visible in disclosed data—without claiming to measure execution shortfall magnitudes.
+
+**Sample.** Eight active ETFs with disclosed holdings changes on 25 June 2026: 00982A (Cathay Taiwan Strong Bat), 00981A, 00990A, 00991A (Fuh Hwa Future 50), 00992A (Cathay Tech Innovation), 00993A, 00403A, and 00988A. None of the six core ETFs (0050, 006208, 0056, 00878, 00919, 00929) appear in this snapshot; results should be read as **ecosystem evidence**, not as direct confirmation for the core sample.
+
+**Data source.** Taiwan MOPS (Market Observation Post System) and issuer PCF / holdings-change disclosures as of 25 June 2026.
+
+#### 4.3.2 Holdings changes by fund
+
+**Table 4.1. Selected holdings changes on 25 June 2026 (shares, thousands)**
+
+| Ticker | Notable increases | Notable decreases / removals |
+|:-------|:------------------|:-----------------------------|
+| 00982A | — | ChipMOS (6285) −1,007 |
+| 00981A | UMC (2303) +6,142; WinWay (6223) +73; MediaTek (2454) +60 | ASE (3711) −3,790; ChipMOS Tech (8150) −1,443; Delta (2308) −312 |
+| 00990A | **New position:** UMC +2,475 | SUMCO (3436 JP) −238 |
+| 00991A | Winbond (2344) +1,300; UMC +1,000; ASE +1,200; 11 other names | Gold Circuit (2368) −691; Auras (3017) −391; Delta −441 |
+| 00992A | — | **Removed:** Jentech (3653), Delta (2308) |
+| 00988A | UMC +2,000; Japanese passive-component names | **Removed:** NVIDIA (NVDA); Hon Hai (2317) −27 |
+| 00993A | SinoPac Financial (2890) +996; UMC +356; Eva Air (2618) +443; others | Yuanta (2885) −491; Cathay Fin. (2882) −306; KGI (2883) −178; others |
+| 00403A | UMC +600; JMTC (3189) +228; WinWay +40 | Gold Circuit −500; United Epitaxy (3081) −80 |
+
+#### 4.3.3 Cross-fund aggregation
+
+**Table 4.2. Aggregated share changes across eight funds on the same date**
+
+| Stock (code) | Total increase (000s) | Total decrease (000s) | Net direction |
+|:-------------|----------------------:|------------------------:|:--------------|
+| **UMC (2303)** | **+10,573** | — | Net buy |
+| Winbond (2344) | +1,364 | — | Net buy |
+| WinWay (6223) | +131 | — | Net buy |
+| Unimicron (3037) | +213 | — | Net buy |
+| JMTC (3189) | +244 | — | Net buy |
+| Delta (2308) | — | **−771** | Net sell / removal |
+| Gold Circuit (2368) | — | **−1,191** | Net sell |
+| ASE (3711) | +1,253 | **−3,790** | Net sell (one fund dominates) |
+
+Six of the eight funds increased UMC positions on the same disclosure date, for a combined increase exceeding 10.57 million shares. Delta and Gold Circuit appeared as net sells across multiple funds. ASE illustrates offsetting fund-level mandates: one fund reduced ASE by 3.79 million shares while another increased by 1.20 million—consistent with **fund-specific index rules** rather than a single market-wide view on the name.
+
+#### 4.3.4 Mapping to framework propositions
+
+**Table 4.3. What the 25 June 2026 snapshot does and does not support**
+
+| Proposition | Evidence on 25 June 2026 | Assessment | Caveat |
+|:------------|:-------------------------|:-----------|:-------|
+| $Delivery_t$ (mandatory basket trades) | UMC net bought in six funds; 00990A added UMC as a new constituent | **Consistent** | Analogous in structure to TSMC delivery in 0050, but not a test of 0050 itself |
+| $Roll_t$ (rebalance-day friction) | Eight funds adjusted on the same date; concentrated buy/sell names | **Consistent** | Magnitude of MI not observed without trade prices and ADV |
+| Delegated control | Opposing ASE changes across funds | **Consistent** | Holders cannot override index-mandated weights |
+| Factor rotation (HML / financials) | 00993A: Yuanta, Cathay, KGI down; SinoPac up | **Consistent** | Rule-based rebalancing, not evidence of stock-picking α |
+| Technology supply-chain clustering | UMC, Winbond, WinWay, Unimicron, JMTC up in multiple funds | **Consistent** | Parallels 00929-style industry exposure; not a direct 00929 test |
+| Cross-border delivery | 00988A removed NVDA; added Japanese component names | **Consistent** | Index rules apply to international constituents |
+| Anticipatory trading / front-running | High cross-fund synchronization | **Not identified** | Post-disclosure snapshot only; no execution timing or counterparty data |
+| $\phi_{rebalance}$ / LCP magnitude | Large share deltas | **Not quantified** | Requires rebalance-window return and volume event study |
+| $G_t$ / equalization sustainability | Not in holdings data | **Not testable** | Payout composition undisclosed |
+| Core six-ETF concentration (HHI) | Core sample absent | **N/A** | Extension sample only |
+
+#### 4.3.5 Interpretation
+
+Three patterns are worth highlighting without over-interpreting causality.
+
+**First**, synchronized UMC buying across independently managed active ETFs is difficult to reconcile with a pure "many independent stock pickers" story. It is more naturally read as **multiple index mandates delivering on the same calendar**, stacking demand for the same underlying name—structurally similar to quarterly roll pressure in futures markets, as modeled in §2.0.
+
+**Second**, cross-fund divergence on ASE and synchronized reductions in Delta and Gold Circuit show that ETF portfolios are **not static**. Weight changes follow index methodology, not unilateral investor choice within a single product.
+
+**Third**, 00993A's same-day rotation among financial holdings (decreases in Yuanta, Cathay, and KGI; a large increase in SinoPac) provides a concrete example of **rule-driven factor exposure adjustment**—aligned with the FF interpretation in §2.4.4, but not substituting for a formal factor regression.
+
+#### 4.3.6 Limitations
+
+1. **Timing.** Disclosures reflect end-of-day or announcement-date positions; they do not reveal whether trades were split across an implementation window (see §4.1).
+2. **Causality.** Synchronization may reflect shared index-provider calendars, overlapping sector tilts, or common rebalance schedules—not necessarily anticipatory trading against ETF flows.
+3. **Scope.** The case study covers eight active ETFs outside the core six; generalization to 0050/00929 requires separate PCF analysis.
+4. **Outcomes.** Share-count changes do not imply measurable NAV harm or benefit; execution shortfall remains a distinct empirical question (Li, 2022).
+
+Full ticker-level detail and aggregation checks appear in **Appendix C**.
 
 ---
 
@@ -488,6 +573,9 @@ Taiwan's six dominant ETFs are not interchangeable forward packages. Marketing l
 **00878** exhibits material financial tail dependence in crisis states.
 **00929** remains exposed to pure technology and industry concentration despite stock-level dispersion.
 All six ETFs carry persistent fee drag, calendar risk, and rebalance frictions that make them closer to spot-wrapped forwards than to frictionless baskets.
+
+An extension case study of eight active ETFs on 25 June 2026 (§4.3) provides publicly verifiable evidence that synchronized, rule-driven holdings changes occur on shared rebalance dates—consistent with mandatory delivery obligations, though insufficient on its own to quantify implementation shortfall.
+
 The main theoretical implication is that standard asset-pricing models are not wrong mathematically, but their assumptions become incomplete when ETFs are priced and held as if they were spot portfolios. The practical implication is that investors should evaluate ETF risk using both the underlying portfolio composition and the contract-like frictions created by index delegation, payout design, and trading mechanics.
 
 This paper has several limitations. First, some components of MRC, FF, and CVaR remain structural or illustrative pending full-sample econometrics. Second, the perpetual analogy is conceptual rather than a legal or exact valuation identity. Third, the dividend-sustainability analysis would benefit from richer issuer disclosure on equalization reserves and payout composition.
@@ -496,10 +584,12 @@ Future work should extend the analysis with higher-frequency event windows, roll
 
 ### 7.1 Limitations
 
+- **v2.4 update:** §4.3 and Appendix C—synchronized rebalance holdings snapshot (25 June 2026, eight active ETFs). Supports delegated-delivery interpretation; does not quantify MI, front-running, or $G_t$.
 - **v2.3 update:** Forward tenor volatilities plus **H6 pilot** (0050 rebalance vol ratio 1.13; 0056 ex-div month 1.80; 00929 ex-div month 1.42). True $G_t$ requires issuer equalization-share disclosure.
 - **v2.3 addition:** The perpetual analogy is conceptual, not a legal or exact valuation identity.
+- **v2.3 addition:** §2.4 expanded with FF3/FF5 formal specification (§2.4.1–2.4.4), Table 3 structural preview, and Appendix B replication code.
 - **v2.2:** Appendix A empirical HHI from public PCF pipelines.
-- **v2.4 addition:** §2.4 expanded with FF3/FF5 formal specification (§2.4.1–2.4.4), Table 3 structural preview, and Appendix B replication code. MRC, FF empirical estimates, and CVaR remain pending full-sample econometrics with Taiwan FF factor data.
+- MRC, FF empirical estimates, and CVaR remain pending full-sample econometrics with Taiwan FF factor data.
 
 ### 7.2 Replication agenda
 
@@ -509,6 +599,7 @@ Future work should extend the analysis with higher-frequency event windows, roll
 4. CVaR and crash-month conditional returns.
 5. Panel on $G_t$, $EQ\_ratio$, flows, and premium/discount (H5–H6d).
 6. Re-run: `py code/compute_forward_horizon_risk.py` and `py code/parse_silk_silver_1912_1921.py`.
+7. **Holdings-change monitoring:** MOPS / issuer PCF diffs on rebalance dates (pilot: 25 June 2026, Appendix C); cross with $|\Delta w| \cdot ADV$ and H6 rebalance-window vol ratios.
 
 ---
 
@@ -667,6 +758,73 @@ Once factor data are available, populate the following table with point estimate
 | 00929 | — | — | — | — | — | — | — | — |
 
 *Dashes indicate pending empirical estimation. Sign expectations are documented in §2.4 and Table 3 (structural preview). Monthly observations 2018-01–2025-12 ($T \approx 96$).*
+
+---
+
+# Appendix C — Synchronized Rebalance Snapshot (25 June 2026)
+
+This appendix supplements §4.3 with full ticker-level holdings changes from public disclosures (MOPS and issuer PCF notices). Units: shares (not thousands). Positive values denote increases; negative values denote decreases. Removals are listed as disclosed exit positions.
+
+## C.1 Holdings changes by ETF
+
+| Ticker | Stock (code) | Change (shares) | Type |
+|:-------|:-------------|----------------:|:-----|
+| 00982A | ChipMOS (6285) | −1,007,000 | Decrease |
+| 00981A | UMC (2303) | +6,142,000 | Increase |
+| 00981A | WinWay (6223) | +73,000 | Increase |
+| 00981A | MediaTek (2454) | +60,000 | Increase |
+| 00981A | Delta (2308) | −312,000 | Decrease |
+| 00981A | ChipMOS Tech (8150) | −1,443,000 | Decrease |
+| 00981A | ASE (3711) | −3,790,000 | Decrease |
+| 00990A | UMC (2303) | +2,475,000 | New constituent |
+| 00990A | SUMCO (3436 JP) | −237,900 | Decrease |
+| 00991A | Winbond (2344) | +1,300,000 | Increase |
+| 00991A | UMC (2303) | +1,000,000 | Increase |
+| 00991A | ASE (3711) | +1,200,000 | Increase |
+| 00991A | Unimicron (3037) | +150,000 | Increase |
+| 00991A | Auras (3017) | −391,000 | Decrease |
+| 00991A | Delta (2308) | −441,000 | Decrease |
+| 00991A | Gold Circuit (2368) | −691,000 | Decrease |
+| 00992A | Jentech (3653) | — | Removed |
+| 00992A | Delta (2308) | — | Removed |
+| 00988A | UMC (2303) | +2,000,000 | Increase |
+| 00988A | MediaTek (2454) | +35,000 | Increase |
+| 00988A | Murata (6981 JP) | +106,000 | Increase |
+| 00988A | NVIDIA (NVDA) | — | Removed |
+| 00988A | Hon Hai (2317) | −27,000 | Decrease |
+| 00993A | SinoPac Financial (2890) | +996,000 | Increase |
+| 00993A | UMC (2303) | +356,000 | Increase |
+| 00993A | Eva Air (2618) | +443,000 | Increase |
+| 00993A | Yuanta Financial (2885) | −491,000 | Decrease |
+| 00993A | Cathay Financial (2882) | −306,000 | Decrease |
+| 00993A | KGI Financial (2883) | −178,000 | Decrease |
+| 00403A | UMC (2303) | +600,000 | Increase |
+| 00403A | JMTC (3189) | +228,000 | Increase |
+| 00403A | WinWay (6223) | +40,000 | Increase |
+| 00403A | Gold Circuit (2368) | −500,000 | Decrease |
+| 00403A | United Epitaxy (3081) | −80,000 | Decrease |
+
+*00991A, 00988A, and 00993A reported additional smaller line-item changes; Table 4.1 in §4.3 summarizes the largest moves.*
+
+## C.2 Cross-fund aggregation (selected names)
+
+| Stock (code) | Sum of increases | Sum of decreases | Net |
+|:-------------|-----------------:|-----------------:|----:|
+| UMC (2303) | +10,573,000 | 0 | +10,573,000 |
+| Winbond (2344) | +1,364,000 | 0 | +1,364,000 |
+| WinWay (6223) | +131,000 | 0 | +131,000 |
+| Unimicron (3037) | +213,000 | 0 | +213,000 |
+| JMTC (3189) | +244,000 | 0 | +244,000 |
+| Delta (2308) | 0 | −771,000 | −771,000 |
+| Gold Circuit (2368) | 0 | −1,191,000 | −1,191,000 |
+| ASE (3711) | +1,253,000 | −3,790,000 | −2,537,000 |
+
+## C.3 Data notes
+
+- **Source date:** 25 June 2026 (public disclosure date).
+- **Scope:** Eight active ETFs; excludes the six core ETFs studied in the main text.
+- **Verification:** Readers may cross-check against MOPS ETF holdings notices and issuer PCF pages.
+- **Non-claims:** This appendix documents position changes only. It does not report trade execution prices, implementation shortfall, anticipatory trading, or equalization-fund usage.
 
 ---
 
