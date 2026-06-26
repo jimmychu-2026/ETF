@@ -4,8 +4,8 @@
 > **敘事主軸（不可偏離）**：六大 ETF 經濟本質為 **「包裝成現貨的遠期／期貨」**——日交易 NAV 是現貨外觀，投資人實際承擔月／季／年**指數交割、配息承諾、再平衡展期**義務（與民國生絲／標金、鬱金香合約同構）。  
 > **建議標題（中）**：包裝成現貨的遠期：台灣熱門 ETF 之期限風險、集中度與配息可持續性  
 > **建議標題（英）**：Spot-Wrapped Forwards: Tenor Risk, Concentration, and Dividend Sustainability in Taiwan's Popular ETFs  
-> **SSRN 主檔**：`manuscript/SSRN-Taiwan-ETF-Risk-Budgeting.md`（**v2.2**，Forward Tenor Stack + 期限波動實證）  
-> **最後更新**：2026-06-09（主軸對齊 `ETF.md`；新增 $\sigma_m/\sigma_q/\sigma_y$ 與 1912–1921 銀價年 tenor 對照）
+> **SSRN 主檔**：`manuscript/SSRN-Taiwan-ETF-Risk-Budgeting.md`（**v2.4**，Forward Tenor Stack + 6/25 換股日 extension case study）  
+> **最後更新**：2026-06-26（v2.4：§4.3／Appendix C 同步持股異動實證；analyze-ETF §6.5 母版已對應）
 
 ---
 
@@ -47,18 +47,20 @@
 2. **方法**：六檔 ETF 之 **HHI–MRC–FF5–CVaR–Tenor** 五層堆疊＋平準金面板（H5）＋遠期配息缺口（H6）。  
 3. **實證**：**00919／00929** 空白補足；**2018–2025** 月／季／年 σ 實證（`compute_forward_horizon_risk.py`）。  
 4. **歷史對照**：1912–1921 銀價年 tenor 與 0050 年 σ 同級，支撐 `ETF.md` §五歷史同構。  
-5. **制度**：$EQ\_ratio$、Flow、Discount 作為遠期交割失敗之預警指標。
+5. **制度**：$EQ\_ratio$、Flow、Discount 作為遠期交割失敗之預警指標。  
+6. **微觀結構延伸（v2.4）**：2026-06-25 八檔主動型 ETF 公開持股異動日——聯電跨 6 檔淨買入逾 1,057 萬股，支持 $Delivery_t$／$Roll_t$ 之**描述性**證據（§4.3；Appendix C）；**不**量化 MI、front-run 或 $G_t$。
 
-### 0.4 完成度對照（SSRN v2 → 期刊版）
+### 0.4 完成度對照（SSRN v2.4 → 期刊版）
 
-| 項目 | SSRN v2 現況 | 期刊投稿最低門檻 |
+| 項目 | SSRN v2.4 現況 | 期刊投稿最低門檻 |
 | :--- | :--- | :--- |
 | HHI 實證表 | ✅ Appendix A（六檔完整 PCF；00878 cwapi、00919／00929 Pocket.tw） | 六檔 PCF **時間序列**（月／季面板） |
+| 換股日持股異動（extension） | ✅ §4.3 + Appendix C（2026-06-25，8 檔主動 ETF；客觀敘事） | 多期面板 + $|\Delta w|\cdot ADV$ 事件研究 |
 | MRC／CVaR | 結構／示意 | Ledoit-Wolf $\Sigma$ + 全樣本估計 |
-| FF5 回歸 | 假說與預期符號 | Table 3 完整係數 + Newey-West |
+| FF5 回歸 | 假說與預期符號（§2.4 + Appendix B 程式） | Table 3 完整係數 + Newey-West |
 | 平準金 H5 | 制度描述 | Panel logit + FE（Table 6） |
 | Robustness | 列於 Limitations | 至少 2 項（COVID 子樣本、FF3 vs FF5 等） |
-| 語氣 | Working paper + AI 聲明 | 中性學術語、無示意標籤 |
+| 語氣 | Working paper + AI 聲明；6/25 用 *consistent with* 非 *proves* | 中性學術語、無示意標籤 |
 
 **可重現腳本**：`code/compute_hhi_finmind.py` → `output/hhi_finmind.csv`、`output/appendix-a-hhi-finmind.md`。
 
@@ -69,8 +71,10 @@
 | v1 | 框架 + 示意 HHI | 已完成 |
 | **v2** | FinMind + Yuanta PCF 實證 HHI（0050／0056；三檔 equal-tail 估算） | 已取代 |
 | **v2.1** | 六檔完整 PCF HHI | 已取代 |
-| **v2.2** | **Forward Tenor Stack** + $\sigma_m/\sigma_q/\sigma_y$ 實證 + 歷史年 tenor 對照 | **目前** |
-| v3（規劃） | FF3/FF5 回歸 + $G_t$／$B_t$ 面板 | 待 TEJ／FinMind |
+| **v2.2** | **Forward Tenor Stack** + $\sigma_m/\sigma_q/\sigma_y$ 實證 + 歷史年 tenor 對照 | 已取代 |
+| **v2.3** | Perpetual analogy（§6）+ FF3/FF5 正式規格（§2.4、Appendix B）+ H6 pilot | 已取代 |
+| **v2.4** | **§4.3／Appendix C** 換股日持股異動 extension case（2026-06-25） | **目前** |
+| v3（規劃） | FF3/FF5 回歸係數表 + $G_t$／$B_t$ 面板 + 持股異動×ADV 事件窗 | 待 TEJ／FinMind |
 | 期刊版 | Table 1–7 全填 + Discussion | 依 §十一 時程 |
 
 ### 0.6 2026-06 實證管線更新摘要
@@ -91,6 +95,35 @@
 - 00919／00929 若審稿要求，可附群益／復華官網 PCF PDF 作交叉驗證（非重算必要步驟）。
 
 **投稿披露建議**：00919／00929 註明資料取自 Pocket.tw 公開 API（DtNo 59449513），對照日 2026-06-08，與投信 PCF 持股明細一致；00878 註明 Cathay cwapi 與 PCF 公布日。
+
+### 0.7 2026-06-26 SSRN v2.4 更新摘要
+
+**母版 → 投稿版對照**
+
+| `analyze-ETF.md` | `SSRN-Taiwan-ETF-Risk-Budgeting.md` | 處理方式 |
+| :--- | :--- | :--- |
+| §6.5 6/25 持股異動 | §4.3 + Appendix C | ✅ 英文化、客觀敘事 |
+| §6.5.2 命題檢驗矩陣 | Table 4.3 | ✅ 改為 *consistent / not testable* |
+| §6.2 法規套利「漏洞」 | — | ⏸ 未納入（待契約條文引用） |
+| §6.3 風險評分卡 | — | ❌ 未納入（主觀加權） |
+
+**v2.4 新增內容**
+
+1. **§4.3**：八檔主動型 ETF（00982A–00988A 等）於 2026-06-25 同日揭露持股異動；聯電（2303）六檔合計淨買入 **+10,573,000 股**；台達電、金像電跨檔淨減。
+2. **Table 4.3**：框架命題對照表——明確標示可支持（$Delivery_t$、delegated control、factor rotation）與不可檢驗（$G_t$、MI 幅度、front-run）項目。
+3. **Appendix C**：完整 ticker 級持股差異與跨檔聚合；資料來源 MOPS／投信 PCF。
+4. **Replication agenda §7.2-7**：持股異動日監控 + 與 H6 rebalance 窗交叉驗證。
+
+**敘事原則（避免偏頗）**
+
+- 樣本定位：**ecosystem extension**，非六大 ETF 直接檢驗。
+- 用語：**consistent with** 取代 **proves**；**descriptive case study** 取代 **實證透視／黑箱**。
+- 限制：事後 PCF 快照、無成交價、無法推論 anticipatory trading 獲利。
+
+**期刊版待補（v3）**
+
+- 聯電等標的換股日前後 $|\Delta w| \cdot ADV$ 與異常報酬。
+- 將 6/25 單日案例擴展為多期 rebalance 面板（含 0050／00929 若 PCF 可取得）。
 
 ---
 
@@ -181,6 +214,13 @@
 - **檢驗方法**：事件研究（rebalance／ex-div 窗）；$G_t$ 由配息公告與成分股息推算
 - **實證現況（已完成）**：2018–2025 $\sigma_m,\sigma_q,\sigma_y$ + **H6 pilot**（0050 rebal 1.13×；0056 ex-div **1.80×**；00929 ex-div **1.42×**）。銀價 σ 見 `output/silk_silver/`。
 - **待做**：指數公司精準生效日重跑 H6a；投信 **EQ_ratio** → 真 $G_t$（H6d）。
+
+### H6e：換股日持股同步性（**v2.4 新增，描述性**）
+
+> **H6e（探索性）**：同一公開換股日，多檔指數型／主動型 ETF 對相同標的之淨買賣方向高度集中，與 $Delivery_t$ 及可預測 rebalance basket 假說一致。
+
+- **v2.4 現況**：2026-06-25 單日快照（8 檔主動 ETF；聯電 +10.57M 股）→ SSRN §4.3、Appendix C。
+- **待做**：多期面板；與 H6a rebalance 窗波動比率交叉；六大 ETF PCF 納入樣本。
 
 ---
 
@@ -611,9 +651,9 @@ $$Discount_{i,t} = \delta_i + \tau_t + \phi_1 EQ\_ratio_{i,t} + \phi_2 Flow_{i,t
 ### 11.5 本專案建議時程（個人進修版）
 
 ```
-現在 ──► SSRN v2（HHI 實證）上傳，累積 6–12 個月能見度
+現在 ──► SSRN v2.4 上傳（HHI + Tenor + 6/25 case study），累積 6–12 個月能見度
    │
-   ├─► v3：FF 回歸一表（FinMind 月報酬）→ SSRN 更新
+   ├─► v3：FF 回歸一表 + 持股異動×ADV 事件窗 → SSRN 更新
    │
    ├─► 若下載/引用/回饋 positive + Table 1–4 完成
    │       → 投 PBFJ 或《證券市場發展季刊》（擇一）
@@ -622,9 +662,11 @@ $$Discount_{i,t} = \delta_i + \tau_t + \phi_1 EQ\_ratio_{i,t} + \phi_2 Flow_{i,t
            → 停在 v3 SSRN 即可，不必強求期刊
 ```
 
-### 11.6 投稿前 checklist（相對 SSRN v2 的增量）
+### 11.6 投稿前 checklist（相對 SSRN v2.4 的增量）
 
 - [x] 六檔 HHI 皆來自完整 PCF（非 equal-tail 估算）
+- [x] 換股日 extension case study（§4.3；2026-06-25；客觀敘事）
+- [ ] 持股異動多期面板 + $|\Delta w|\cdot ADV$（v3）
 - [ ] MRC 時間序列（2020–2025）+ 95% CI
 - [ ] FF5 回歸 Table 3（Newey-West lag=3）
 - [ ] CVaR + crash month Table 4
